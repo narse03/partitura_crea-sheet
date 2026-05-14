@@ -18,7 +18,7 @@ export async function middleware(request: NextRequest) {
           )
           supabaseResponse = NextResponse.next({ request })
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            supabaseResponse.cookies.set(name, value, options as object)
           )
         },
       },
@@ -27,7 +27,6 @@ export async function middleware(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
-  // Routes protégées
   const protectedPaths = ['/personnages', '/creation', '/mj']
   const isProtected = protectedPaths.some(p =>
     request.nextUrl.pathname.startsWith(p)
@@ -36,13 +35,7 @@ export async function middleware(request: NextRequest) {
   if (isProtected && !user) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
-    url.searchParams.set('redirect', request.nextUrl.pathname)
     return NextResponse.redirect(url)
-  }
-
-  // Si connecté, ne pas accéder à /auth
-  if (user && request.nextUrl.pathname.startsWith('/auth')) {
-    return NextResponse.redirect(new URL('/personnages', request.url))
   }
 
   return supabaseResponse
