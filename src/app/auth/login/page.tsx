@@ -5,7 +5,9 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
 
-export default function LoginPage() {
+import { Suspense } from 'react'
+
+function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState<'login' | 'signup'>('login')
@@ -93,5 +95,13 @@ export default function LoginPage() {
         </p>
       </div>
     </main>
+ )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div style={{background:'#0F0E17',minHeight:'100vh'}}></div>}>
+      <LoginForm />
+    </Suspense>
   )
 }
