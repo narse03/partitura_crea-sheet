@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0F0E17;
+  --bg2: #1A1828;
+  --bg3: #221F35;
+  --border: #2E2B45;
+  --border2: #3D3960;
+  --text: #E8E6F0;
+  --text2: #9B96B8;
+  --text3: #6B6589;
+  --purple: #7F77DD;
+  --purple2: #534AB7;
+  --green: #22C97A;
+  --gold: #FAC775;
+  --red: #D85A30;
+  --orange: #FF9068;
+  --blue: #4A9EE0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple2); }
+
+/* Inputs globaux */
+input, select, textarea {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--purple);
+}
+select option { background: var(--bg3); }
+
+@layer components {
+  .card {
+    @apply bg-bg2 border border-border rounded-xl p-4 mb-3;
+  }
+  .btn-primary {
+    @apply bg-purple2 text-white font-semibold rounded-lg px-5 py-2 text-sm
+           hover:opacity-90 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-transparent text-text2 border border-border2 font-semibold rounded-lg px-5 py-2 text-sm
+           hover:bg-bg3 transition-colors;
+  }
+  .btn-green {
+    @apply text-green border border-green font-semibold rounded-lg px-5 py-2 text-sm
+           hover:bg-green/10 transition-colors;
+    background: rgba(34, 201, 122, 0.1);
+  }
+  .section-title {
+    @apply text-[10px] uppercase tracking-widest text-text3 font-bold mb-3;
+  }
+  .info-box {
+    @apply text-xs text-text2 bg-purple/10 border border-purple/20 rounded-md p-2 mb-3 leading-relaxed;
+  }
+  .warn-box {
+    @apply text-xs text-orange bg-red/10 border border-red/20 rounded-md p-2 mb-2 leading-relaxed;
+  }
+  .ok-box {
+    @apply text-xs text-green bg-green/10 border border-green/20 rounded-md p-2 mb-2;
+  }
+}
