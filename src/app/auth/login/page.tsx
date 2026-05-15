@@ -36,7 +36,8 @@ function LoginForm() {
         options: { emailRedirectTo: `${location.origin}/auth/callback` }
       })
       if (error) { setError(error.message); setLoading(false); return }
-      setSuccess('Vérifie ton email pour confirmer ton compte !')
+      router.push('/personnages')
+router.refresh()
       setLoading(false)
     }
   }
