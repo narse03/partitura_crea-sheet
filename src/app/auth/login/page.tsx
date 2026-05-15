@@ -1,11 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
-
-import { Suspense } from 'react'
 
 function LoginForm() {
   const [email, setEmail] = useState('')
@@ -13,7 +11,6 @@ function LoginForm() {
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
   const router = useRouter()
   const params = useSearchParams()
   const redirect = params.get('redirect') || '/personnages'
@@ -23,7 +20,6 @@ function LoginForm() {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    setSuccess(null)
 
     if (mode === 'login') {
       const { error } = await supabase.auth.signInWithPassword({ email, password })
@@ -31,33 +27,26 @@ function LoginForm() {
       router.push(redirect)
       router.refresh()
     } else {
-      const { error } = await supabase.auth.signUp({
-        email, password,
-        options: { emailRedirectTo: `${location.origin}/auth/callback` }
-      })
+      const { error } = await supabase.auth.signUp({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
       router.push('/personnages')
-router.refresh()
-      setLoading(false)
+      router.refresh()
     }
   }
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4" style={{background:'#0F0E17'}}>
       <div className="w-full max-w-sm">
-
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-bold"
                 style={{background:'linear-gradient(135deg,#FAC775,#7F77DD)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
             PARTITURA
           </Link>
           <p className="text-text2 text-sm mt-1">
-            {mode === 'login' ? 'Connecte-toi à ton compte' : 'Crée ton compte'}
+            {mode === 'login' ? 'Connecte-toi' : 'Crée ton compte'}
           </p>
         </div>
-
         <div className="card p-6">
-          {/* Toggle login / signup */}
           <div className="flex gap-2 mb-6 bg-bg3 rounded-lg p-1">
             {(['login','signup'] as const).map(m => (
               <button key={m} onClick={() => setMode(m)}
@@ -67,7 +56,6 @@ router.refresh()
               </button>
             ))}
           </div>
-
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
               <label className="text-xs text-text3 uppercase tracking-wider block mb-1">Email</label>
@@ -79,24 +67,15 @@ router.refresh()
               <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••" required minLength={6} className="w-full" />
             </div>
-
             {error && <div className="warn-box">{error}</div>}
-            {success && <div className="ok-box">{success}</div>}
-
             <button type="submit" disabled={loading} className="btn-primary py-3 mt-2">
               {loading ? 'Chargement...' : mode === 'login' ? 'Se connecter' : "S'inscrire"}
             </button>
           </form>
         </div>
-
-        <p className="text-center text-xs text-text3 mt-4">
-          <Link href="/creation" className="text-purple hover:text-text2 transition-colors">
-            Continuer sans compte →
-          </Link>
-        </p>
       </div>
     </main>
- )
+  )
 }
 
 export default function LoginPage() {
