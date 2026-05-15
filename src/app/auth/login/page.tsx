@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, Suspense } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Link from 'next/link'
 
@@ -11,7 +11,6 @@ function LoginForm() {
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
   const params = useSearchParams()
   const redirect = params.get('redirect') || '/personnages'
   const supabase = createClient()
@@ -24,13 +23,11 @@ function LoginForm() {
     if (mode === 'login') {
       const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      router.push(redirect)
-      router.refresh()
+      window.location.href = redirect
     } else {
       const { error } = await supabase.auth.signUp({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      router.push('/personnages')
-      router.refresh()
+      window.location.href = '/personnages'
     }
   }
 
@@ -73,6 +70,11 @@ function LoginForm() {
             </button>
           </form>
         </div>
+        <p className="text-center text-xs text-text3 mt-4">
+          <Link href="/creation" className="text-purple hover:text-text2 transition-colors">
+            Continuer sans compte →
+          </Link>
+        </p>
       </div>
     </main>
   )
