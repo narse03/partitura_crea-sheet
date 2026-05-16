@@ -21,57 +21,80 @@ function LoginForm() {
     setError(null)
 
     if (mode === 'login') {
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      window.location.replace('/personnages')
+      if (data.session) {
+        localStorage.setItem('partitura-auth', JSON.stringify(data.session))
+      }
+      window.location.href = redirect
     } else {
-      const { error } = await supabase.auth.signUp({ email, password })
+      const { data, error } = await supabase.auth.signUp({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      window.location.replace('/personnages')
+      if (data.session) {
+        localStorage.setItem('partitura-auth', JSON.stringify(data.session))
+      }
+      window.location.href = '/personnages'
     }
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4" style={{background:'#0F0E17'}}>
-      <div className="w-full max-w-sm">
-        <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-bold"
-                style={{background:'linear-gradient(135deg,#FAC775,#7F77DD)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+    <main style={{background:'#0F0E17',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center',padding:'1rem'}}>
+      <div style={{width:'100%',maxWidth:360}}>
+        <div style={{textAlign:'center',marginBottom:'2rem'}}>
+          <Link href="/" style={{fontSize:24,fontWeight:700,background:'linear-gradient(135deg,#FAC775,#7F77DD)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',textDecoration:'none'}}>
             PARTITURA
           </Link>
-          <p className="text-text2 text-sm mt-1">
+          <p style={{color:'#9B96B8',fontSize:13,marginTop:4}}>
             {mode === 'login' ? 'Connecte-toi' : 'Crée ton compte'}
           </p>
         </div>
-        <div className="card p-6">
-          <div className="flex gap-2 mb-6 bg-bg3 rounded-lg p-1">
+
+        <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:10,padding:'1.5rem'}}>
+          <div style={{display:'flex',gap:6,marginBottom:'1.5rem',background:'#221F35',borderRadius:8,padding:4}}>
             {(['login','signup'] as const).map(m => (
-              <button key={m} onClick={() => setMode(m)}
-                className={`flex-1 py-2 rounded-md text-sm font-semibold transition-all
-                  ${mode===m ? 'bg-purple2 text-white' : 'text-text2 hover:text-text'}`}>
+              <button key={m} onClick={() => setMode(m)} style={{
+                flex:1,padding:'8px',borderRadius:6,fontSize:13,fontWeight:600,cursor:'pointer',border:'none',
+                background: mode===m ? '#534AB7' : 'transparent',
+                color: mode===m ? '#fff' : '#9B96B8',
+                transition:'all .15s',
+              }}>
                 {m === 'login' ? 'Connexion' : 'Inscription'}
               </button>
             ))}
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+
+          <form onSubmit={handleSubmit} style={{display:'flex',flexDirection:'column',gap:16}}>
             <div>
-              <label className="text-xs text-text3 uppercase tracking-wider block mb-1">Email</label>
+              <label style={{fontSize:11,color:'#6B6589',display:'block',marginBottom:3,textTransform:'uppercase',letterSpacing:'0.04em'}}>Email</label>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-                placeholder="ton@email.com" required className="w-full" />
+                placeholder="ton@email.com" required
+                style={{background:'#221F35',border:'1px solid #3D3960',borderRadius:6,color:'#E8E6F0',padding:'7px 10px',fontSize:13,width:'100%',outline:'none'}} />
             </div>
             <div>
-              <label className="text-xs text-text3 uppercase tracking-wider block mb-1">Mot de passe</label>
+              <label style={{fontSize:11,color:'#6B6589',display:'block',marginBottom:3,textTransform:'uppercase',letterSpacing:'0.04em'}}>Mot de passe</label>
               <input type="password" value={password} onChange={e => setPassword(e.target.value)}
-                placeholder="••••••••" required minLength={6} className="w-full" />
+                placeholder="••••••••" required minLength={6}
+                style={{background:'#221F35',border:'1px solid #3D3960',borderRadius:6,color:'#E8E6F0',padding:'7px 10px',fontSize:13,width:'100%',outline:'none'}} />
             </div>
-            {error && <div className="warn-box">{error}</div>}
-            <button type="submit" disabled={loading} className="btn-primary py-3 mt-2">
+
+            {error && (
+              <div style={{fontSize:12,color:'#FF9068',background:'rgba(216,90,48,.1)',border:'1px solid rgba(216,90,48,.2)',borderRadius:6,padding:'7px 10px'}}>
+                {error}
+              </div>
+            )}
+
+            <button type="submit" disabled={loading} style={{
+              background:'#534AB7',color:'#fff',border:'none',borderRadius:6,
+              padding:'12px',fontSize:13,fontWeight:600,cursor:'pointer',
+              opacity:loading?0.5:1,marginTop:8,
+            }}>
               {loading ? 'Chargement...' : mode === 'login' ? 'Se connecter' : "S'inscrire"}
             </button>
           </form>
         </div>
-        <p className="text-center text-xs text-text3 mt-4">
-          <Link href="/creation" className="text-purple hover:text-text2 transition-colors">
+
+        <p style={{textAlign:'center',fontSize:12,color:'#6B6589',marginTop:16}}>
+          <Link href="/creation" style={{color:'#7F77DD',textDecoration:'none'}}>
             Continuer sans compte →
           </Link>
         </p>
