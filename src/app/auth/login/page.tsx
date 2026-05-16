@@ -21,12 +21,16 @@ function LoginForm() {
     setError(null)
 
     if (mode === 'login') {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) { setError(error.message); setLoading(false); return }
-      if (data.session) {
-        localStorage.setItem('partitura-auth', JSON.stringify(data.session))
-      }
-      window.location.href = redirect
+     const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+console.log('Login result:', JSON.stringify(data), error)
+if (error) { setError(error.message); setLoading(false); return }
+if (data.session) {
+  localStorage.setItem('partitura-auth', JSON.stringify(data.session))
+  window.location.href = redirect
+} else {
+  setError('Session nulle - ' + JSON.stringify(data))
+  setLoading(false)
+}
     } else {
       const { data, error } = await supabase.auth.signUp({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
