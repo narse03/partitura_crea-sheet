@@ -10,15 +10,15 @@ export default function PersonnagesPage() {
   const supabase = createClient()
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) {
-        window.location.href = '/auth/login'
-        return
-      }
-      setUser(data.user)
-      setLoading(false)
-    })
-  }, [])
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (!session) {
+      window.location.href = '/auth/login'
+      return
+    }
+    setUser(session.user)
+    setLoading(false)
+  })
+}, [])
 
   if (loading) return (
     <div style={{background:'#0F0E17',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
