@@ -13,6 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
+      <head>
+        <script dangerouslySetInnerHTML={{__html: `
+          window.__SUPABASE_URL__ = "${process.env.NEXT_PUBLIC_SUPABASE_URL}";
+          window.__SUPABASE_ANON_KEY__ = "${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}";
+        `}} />
+      </head>
       <body>{children}</body>
     </html>
   )

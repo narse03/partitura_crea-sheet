@@ -1,17 +1,17 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 export function createClient() {
-  return createSupabaseClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      auth: {
-        persistSession: true,
-        storageKey: 'partitura-auth',
-        storage: typeof window !== 'undefined' ? window.localStorage : undefined,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-      }
+  const url = (typeof window !== 'undefined' ? (window as any).__SUPABASE_URL__ : '') 
+    || process.env.NEXT_PUBLIC_SUPABASE_URL!
+  const key = (typeof window !== 'undefined' ? (window as any).__SUPABASE_ANON_KEY__ : '')
+    || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+  return createSupabaseClient(url, key, {
+    auth: {
+      persistSession: true,
+      storageKey: 'partitura-auth',
+      storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+      autoRefreshToken: true,
     }
-  )
+  })
 }
