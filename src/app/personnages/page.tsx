@@ -11,55 +11,59 @@ export default function PersonnagesPage() {
   useEffect(() => {
     const supabase = createClient()
     
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    // Vérifie la session toutes les 500ms pendant 5 secondes max
+    let attempts = 0
+    const check = setInterval(async () => {
+      attempts++
+      const { data: { session } } = await supabase.auth.getSession()
       if (session) {
+        clearInterval(check)
         setUser(session.user)
         setLoading(false)
-      } else {
+      } else if (attempts > 10) {
+        clearInterval(check)
         window.location.href = '/auth/login'
       }
-    })
+    }, 500)
 
-    return () => subscription.unsubscribe()
+    return () => clearInterval(check)
   }, [])
 
   if (loading) return (
-    <div style={{background:'#0F0E17',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <div style={{color:'#9B96B8'}}>Chargement...</div>
+    <div style={{background:'#0F0E17',minHeight:'100vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:12}}>
+      <div style={{color:'#7F77DD',fontSize:24}}>⚔</div>
+      <div style={{color:'#9B96B8',fontSize:14}}>Chargement...</div>
     </div>
   )
 
   return (
-    <main className="min-h-screen" style={{background:'#0F0E17'}}>
-      <nav className="border-b border-border px-6 py-4 flex items-center justify-between"
-           style={{background:'#1A1828'}}>
-        <Link href="/" className="font-bold text-lg"
-              style={{background:'linear-gradient(135deg,#FAC775,#7F77DD)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+    <main style={{background:'#0F0E17',minHeight:'100vh'}}>
+      <nav style={{background:'#1A1828',borderBottom:'1px solid #2E2B45',padding:'1rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+        <span style={{fontWeight:700,fontSize:18,background:'linear-gradient(135deg,#FAC775,#7F77DD)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
           PARTITURA
-        </Link>
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-text3">{user?.email}</span>
+        </span>
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <span style={{fontSize:12,color:'#6B6589'}}>{user?.email}</span>
           <button onClick={async () => {
             const supabase = createClient()
             await supabase.auth.signOut()
             window.location.href = '/'
-          }}
-            className="text-xs text-text3 hover:text-red transition-colors px-3 py-1 rounded border border-border">
+          }} style={{fontSize:12,color:'#6B6589',background:'transparent',border:'1px solid #2E2B45',borderRadius:6,padding:'4px 12px',cursor:'pointer'}}>
             Déconnexion
           </button>
         </div>
       </nav>
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-text">Mes Personnages</h1>
-          <Link href="/creation" className="btn-primary">
+      <div style={{maxWidth:900,margin:'0 auto',padding:'2rem 1rem'}}>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'1.5rem'}}>
+          <h1 style={{fontSize:22,fontWeight:700,color:'#E8E6F0'}}>Mes Personnages</h1>
+          <Link href="/creation" style={{background:'#534AB7',color:'#fff',padding:'8px 18px',borderRadius:6,fontSize:13,fontWeight:600,textDecoration:'none'}}>
             + Nouveau personnage
           </Link>
         </div>
-        <div className="card text-center py-12">
-          <div className="text-4xl mb-3">⚔</div>
-          <p className="text-text2 mb-4">Aucun personnage pour l'instant.</p>
-          <Link href="/creation" className="btn-primary inline-block">
+        <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:10,padding:'3rem',textAlign:'center'}}>
+          <div style={{fontSize:36,marginBottom:12}}>⚔</div>
+          <p style={{color:'#9B96B8',marginBottom:16}}>Aucun personnage pour l'instant.</p>
+          <Link href="/creation" style={{background:'#534AB7',color:'#fff',padding:'8px 18px',borderRadius:6,fontSize:13,fontWeight:600,textDecoration:'none'}}>
             Créer mon premier personnage
           </Link>
         </div>
