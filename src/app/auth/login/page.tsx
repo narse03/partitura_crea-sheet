@@ -23,11 +23,11 @@ function LoginForm() {
     if (mode === 'login') {
       const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      window.location.href = redirect
+      window.location.replace('/personnages')
     } else {
       const { error } = await supabase.auth.signUp({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
-      window.location.href = '/personnages'
+      window.location.replace('/personnages')
     }
   }
 
