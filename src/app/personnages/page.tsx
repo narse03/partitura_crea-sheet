@@ -7,18 +7,21 @@ import Link from 'next/link'
 export default function PersonnagesPage() {
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
-  const supabase = createClient()
 
   useEffect(() => {
-  supabase.auth.getSession().then(({ data: { session } }) => {
-    if (!session) {
-      window.location.href = '/auth/login'
-      return
-    }
-    setUser(session.user)
-    setLoading(false)
-  })
-}, [])
+    const supabase = createClient()
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session) {
+        setUser(session.user)
+        setLoading(false)
+      } else {
+        window.location.href = '/auth/login'
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
 
   if (loading) return (
     <div style={{background:'#0F0E17',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
@@ -36,7 +39,11 @@ export default function PersonnagesPage() {
         </Link>
         <div className="flex items-center gap-3">
           <span className="text-xs text-text3">{user?.email}</span>
-          <button onClick={async () => { await supabase.auth.signOut(); window.location.href = '/' }}
+          <button onClick={async () => {
+            const supabase = createClient()
+            await supabase.auth.signOut()
+            window.location.href = '/'
+          }}
             className="text-xs text-text3 hover:text-red transition-colors px-3 py-1 rounded border border-border">
             Déconnexion
           </button>
