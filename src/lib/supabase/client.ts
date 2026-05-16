@@ -1,17 +1,17 @@
-import { createBrowserClient } from '@supabase/ssr'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 export function createClient() {
-  return createBrowserClient(
+  return createSupabaseClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
-      cookieOptions: {
-        name: 'sb-session',
-        lifetime: 60 * 60 * 24 * 7,
-        domain: 'partitura-crea-sheet.vercel.app',
-        path: '/',
-        sameSite: 'lax',
-      },
+      auth: {
+        persistSession: true,
+        storageKey: 'partitura-auth',
+        storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      }
     }
   )
 }
