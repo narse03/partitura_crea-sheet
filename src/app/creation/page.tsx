@@ -116,9 +116,23 @@ export default function CreationPage() {
   const supabase = createClient()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) setUser(session.user)
-    })
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+    if (session) {
+      setUser(session.user)
+      const params = new URLSearchParams(window.location.search)
+      const editId = params.get('edit')
+      if (editId) {
+        const { data } = await supabase
+          .from('personnages')
+          .select('*')
+          .eq('id', editId)
+          .single()
+        if (data?.data) {
+          setSt({...data.data, step: 1})
+        }
+      }
+    }
+  })
   }, [])
 
   const upd = (patch: Partial<typeof st>) => setSt(s => ({...s, ...patch}))

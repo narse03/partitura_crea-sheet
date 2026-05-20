@@ -100,7 +100,10 @@ export default function PersonnagesPage() {
                 <div style={{display:'flex',gap:6,paddingTop:8,borderTop:'1px solid #2E2B45'}}>
                   <Link href={`/fiche/${p.share_token}`} style={{flex:1,textAlign:'center',fontSize:11,padding:'5px',borderRadius:6,background:'#221F35',color:'#9B96B8',textDecoration:'none'}}>
                     Voir
-                  </Link>
+</Link>
+<Link href={`/creation?edit=${p.id}`} style={{flex:1,textAlign:'center',fontSize:11,padding:'5px',borderRadius:6,background:'rgba(127,119,221,.15)',color:'#7F77DD',textDecoration:'none',border:'1px solid rgba(127,119,221,.2)'}}>
+  ✏ Modifier
+</Link>
                   <button onClick={async () => {
                     const url = `${window.location.origin}/fiche/${p.share_token}`
                     await navigator.clipboard.writeText(url)
