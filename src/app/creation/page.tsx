@@ -82,6 +82,7 @@ const initState = () => ({
   voice: null as any,
   vUniv: 10,
   vSpec: 10,
+  voixPts: 40,
   weapon: null as any,
   armor: {n:'Sans armure',red:0,iaM:0,agiM:0},
   shield: {n:'Aucun',id:0},
@@ -570,33 +571,53 @@ export default function CreationPage() {
   // ══════════════════════════════════════════════════════════════
   // STEP 5 — VOIX
   // ══════════════════════════════════════════════════════════════
-  const Step5 = () => (
+const Step5 = () => {
+  const ptsUtilises = (st.vUniv - 10) + (st.vSpec - 10)
+  const ptsDisponibles = 40 - ptsUtilises
+
+  return (
     <div>
       <h2 style={S.title}>5. Voix</h2>
-      <p style={S.sub}>Voix Universelle automatique. Choisissez votre Voix spécialisée. Score de départ 10, jamais supérieur à l'Esprit ({esp}).</p>
+      <p style={S.sub}>Voix Universelle automatique. Choisissez votre Voix spécialisée. Vous avez <strong>40 points</strong> à répartir entre les deux Voix (base 10 chacune). Plafond = votre Esprit ({esp}).</p>
 
       <div style={S.card}>
-        <p style={{...S.label,marginBottom:'0.5rem'}}>Scores de Voix (départ : 10, max = Esprit {esp})</p>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'0.75rem'}}>
+          <span style={{fontSize:12,color:'#9B96B8'}}>Points restants à répartir</span>
+          <span style={{fontSize:24,fontWeight:700,color:ptsDisponibles===0?'#22C97A':ptsDisponibles<0?'#D85A30':'#FAC775'}}>{ptsDisponibles}</span>
+        </div>
+        {ptsDisponibles < 0 && <div style={S.warn}>⚠ Vous avez dépassé les 40 points disponibles !</div>}
+
         <div style={{marginBottom:'0.5rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:'0.5rem',flexWrap:'wrap' as const}}>
+          <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:'0.65rem',flexWrap:'wrap' as const}}>
             <span style={{fontSize:12,color:'#9B96B8',width:140,flexShrink:0}}>Voix Universelle</span>
-            <input type="number" min={10} max={100} value={st.vUniv}
-              onChange={e => upd({vUniv:parseInt(e.target.value)||10})}
-              style={{...S.input,width:65,textAlign:'center' as const,fontSize:14,fontWeight:600}} />
-            <span style={{fontSize:11,color:st.vUniv>esp?'#FF9068':'#22C97A'}}>{st.vUniv>esp?`⚠ Plafonné à ${esp}`:'✓'}</span>
+            <button onClick={() => {
+              if (st.vUniv > 10) upd({vUniv: st.vUniv - 1})
+            }} style={{width:26,height:26,borderRadius:5,border:'1px solid #3D3960',background:'transparent',color:'#E8E6F0',fontSize:15,cursor:'pointer'}}>−</button>
+            <span style={{fontSize:18,fontWeight:700,color:'#fff',minWidth:32,textAlign:'center' as const}}>{st.vUniv}</span>
+            <button onClick={() => {
+              const u = st.vUniv, s = st.vSpec, pts = 40 - (u-10) - (s-10)
+if (u < esp && pts > 0) upd({vUniv: u + 1})
+            }} style={{width:26,height:26,borderRadius:5,border:'1px solid #3D3960',background:'transparent',color:'#E8E6F0',fontSize:15,cursor:'pointer'}}>+</button>
+            <span style={{fontSize:11,color:st.vUniv>=esp?'#FF9068':'#9B96B8'}}>max {esp}</span>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap' as const,opacity:st.voice?1:0.4}}>
             <span style={{fontSize:12,color:'#9B96B8',width:140,flexShrink:0}}>{st.voice?.name||'Voix spécialisée'}</span>
-            <input type="number" min={10} max={100} value={st.vSpec}
-              onChange={e => upd({vSpec:parseInt(e.target.value)||10})}
-              style={{...S.input,width:65,textAlign:'center' as const,fontSize:14,fontWeight:600}} />
-            <span style={{fontSize:11,color:st.vSpec>esp?'#FF9068':'#22C97A'}}>{st.vSpec>esp?`⚠ Plafonné à ${esp}`:'✓'}</span>
+            <button onClick={() => {
+              if (st.vSpec > 10) upd({vSpec: st.vSpec - 1})
+            }} style={{width:26,height:26,borderRadius:5,border:'1px solid #3D3960',background:'transparent',color:'#E8E6F0',fontSize:15,cursor:'pointer'}}>−</button>
+            <span style={{fontSize:18,fontWeight:700,color:st.voice?'#22C97A':'#fff',minWidth:32,textAlign:'center' as const}}>{st.vSpec}</span>
+            <button onClick={() => {
+              const u2 = st.vUniv, s2 = st.vSpec, pts2 = 40 - (u2-10) - (s2-10)
+if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
+            }} style={{width:26,height:26,borderRadius:5,border:'1px solid #3D3960',background:'transparent',color:'#E8E6F0',fontSize:15,cursor:'pointer'}}>+</button>
+            <span style={{fontSize:11,color:st.vSpec>=esp?'#FF9068':'#9B96B8'}}>max {esp}</span>
           </div>
         </div>
+
         <div style={{fontSize:11,color:'#9B96B8',padding:'0.5rem 0.75rem',background:'#221F35',borderRadius:6,marginTop:'0.4rem'}}>
-          Univ. : {uEff} → {cu.label} · {cu.sorts} sorts · +{cu.ren} Ren. &nbsp;|&nbsp;
-          Spec. : {sEff} → {cs.label} · {cs.sorts} sorts · +{cs.ren} Ren. &nbsp;|&nbsp;
-          <strong style={{color:'#FAC775'}}>Renommée totale : {renTotal}</strong>
+          Univ. : {Math.min(st.vUniv,esp)} → {getCercle(Math.min(st.vUniv,esp)).label} · {getCercle(Math.min(st.vUniv,esp)).sorts} sorts &nbsp;|&nbsp;
+          Spec. : {Math.min(st.vSpec,esp)} → {getCercle(Math.min(st.vSpec,esp)).label} · {getCercle(Math.min(st.vSpec,esp)).sorts} sorts &nbsp;|&nbsp;
+          <strong style={{color:'#FAC775'}}>Renommée : {(st.race?.ren||0) + getCercle(Math.min(st.vUniv,esp)).ren + getCercle(Math.min(st.vSpec,esp)).ren}</strong>
         </div>
       </div>
 
@@ -605,7 +626,7 @@ export default function CreationPage() {
           <div style={{fontSize:13,fontWeight:600,color:'#E8E6F0'}}>Voix Universelle</div>
           <div style={{fontSize:11,color:'#9B96B8',marginTop:1}}>Maintient, stabilise — présente en tout être pensant.</div>
         </div>
-        <div style={{fontSize:18,fontWeight:700,color:'#7F77DD'}}>{uEff}</div>
+        <div style={{fontSize:18,fontWeight:700,color:'#7F77DD'}}>{Math.min(st.vUniv,esp)}</div>
       </div>
 
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:7,marginBottom:'0.85rem'}}>
@@ -629,10 +650,13 @@ export default function CreationPage() {
 
       <div style={S.nav}>
         <button style={{...S.btn,...S.btnS}} onClick={() => upd({step:4})}>← Retour</button>
-        <button style={{...S.btn,...S.btnP,opacity:!st.voice?0.35:1}} disabled={!st.voice} onClick={() => upd({step:6})}>Suivant →</button>
+        <button style={{...S.btn,...S.btnP,opacity:(!st.voice||ptsDisponibles!==0)?0.35:1}}
+          disabled={!st.voice||((st.vUniv-10)+(st.vSpec-10))!==40}
+          onClick={() => upd({step:6})}>Suivant →</button>
       </div>
     </div>
   )
+}
 
   // ══════════════════════════════════════════════════════════════
   // STEP 6 — ÉQUIPEMENT (simplifié)
