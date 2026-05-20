@@ -788,30 +788,36 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
   // ══════════════════════════════════════════════════════════════
   // STEP 7 — IDENTITÉ
   // ══════════════════════════════════════════════════════════════
-  const Step7 = () => (
+  const Step7 = () => {
+  return (
     <div>
       <h2 style={S.title}>7. Identité & Position dans le monde</h2>
       <p style={S.sub}>Ancrez votre personnage dans Canticua.</p>
       <div style={{display:'flex',flexDirection:'column' as const,gap:9}}>
-        {[
+        {([
           ['nom','Nom du personnage','Choisissez un nom...'],
           ['concept','Concept / rôle','Ex : guerrier nomade, érudit exilé...'],
           ['origine','Origine (monde, région)','Ex : Unys, Pern...'],
           ['intention','Intention','Ce que le personnage veut...'],
           ['faction','Attachement (Voix / Foi / Faction)','Tour des Mages, clergé...'],
           ['relations','Relations notables','Mentor, rival, dette...'],
-        ].map(([key,lbl,ph]) => (
+        ] as [string,string,string][]).map(([key,lbl,ph]) => (
           <div key={key}>
             <label style={S.label}>{lbl}</label>
-            <input type="text" value={(st as any)[key]} placeholder={ph}
-              onChange={e => upd({[key]:e.target.value} as any)}
+            <input
+              type="text"
+              id={`field-${key}`}
+              defaultValue={(st as any)[key]}
+              placeholder={ph}
+              onBlur={e => upd({[key]:e.target.value} as any)}
               style={S.input} />
           </div>
         ))}
         <div>
           <label style={S.label}>Histoire courte</label>
-          <textarea value={st.bio} placeholder="Quelques lignes sur son passé..."
-            onChange={e => upd({bio:e.target.value})}
+          <textarea id="field-bio" placeholder="Quelques lignes sur son passé..."
+            defaultValue={st.bio}
+onBlur={e => upd({bio:e.target.value})}
             style={{...S.input,resize:'vertical' as const,minHeight:60}} />
         </div>
       </div>
@@ -820,7 +826,7 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
         <button style={{...S.btn,...S.btnP}} onClick={() => upd({step:8})}>Voir la fiche →</button>
       </div>
     </div>
-  )
+  )}
 
   // ══════════════════════════════════════════════════════════════
   // STEP 8 — FICHE
