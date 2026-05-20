@@ -803,7 +803,7 @@ export default function CreationPage() {
   // ══════════════════════════════════════════════════════════════
   const Step8 = () => {
     const finalStats = Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)]))
-    const agiEff = finalStats['Agilité'] - ((st.shield as any)?.agiM||0) - ((st.armor as any)?.agiM||0)
+    const agiEff =  finalStats['Agilité'] - ((st.shield as any)?.agiM||0) - ((st.armor as any)?.agiM||0)
     const ia = finalStats['Corps'] - (st.armor?.iaM||0) - (st.weapon?.exig>finalStats['Corps']?10:0)
     const id_ = Math.floor((finalStats['Corps']+agiEff)/2) + (st.shield?.id||0)
     const allSkills = [...st.major,...st.minor].map(sk => {
