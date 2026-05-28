@@ -118,12 +118,12 @@ export default function FichePage() {
           </div>
         </div>
 {/* Sorts */}
-{d?.voice && (
+{(d?.voice || d?.voiceName) && (
   <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:8,padding:'1rem',marginBottom:12}}>
     <div style={{fontSize:9,color:'#6B6589',textTransform:'uppercase' as const,letterSpacing:'0.07em',marginBottom:8,fontWeight:700}}>
       Sorts disponibles
     </div>
-    <SortsSection voiceId={d.voice?.id} vUniv={d.vUniv||10} vSpec={d.vSpec||10} esprit={d.finalStats?.Esprit||30} />
+    <SortsSection voiceId={d.voice?.id || d.voiceId || 'universelle'} vUniv={d.vUniv||10} vSpec={d.vSpec||10} esprit={d.finalStats?.Esprit||30} />
   </div>
 )}
         {/* Équipement */}
