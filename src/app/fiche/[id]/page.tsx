@@ -5,6 +5,22 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useParams } from 'next/navigation'
 
+// Retrouve l'identifiant de la Voix spécialisée quel que soit le format enregistré
+// (objet {id,name}, chaîne, voiceId seul, ou seulement voiceName sur les anciens personnages)
+const VOICE_IDS: Record<string,string> = {
+  'voix universelle':'universelle', 'voix des armes':'armes', 'voix sauvage':'sauvage',
+  'voix des dieux':'dieux', 'voix des ombres':'ombres', 'voix des érudits':'erudits',
+  'voix de la création':'creation',
+}
+function resolveVoiceId(d: any): string {
+  if (!d) return 'universelle'
+  if (typeof d.voice === 'string' && d.voice) return d.voice
+  if (d.voice?.id) return d.voice.id
+  if (d.voiceId) return d.voiceId
+  const name = (d.voice?.name || d.voiceName || '').trim().toLowerCase()
+  return VOICE_IDS[name] || 'universelle'
+}
+
 export default function FichePage() {
   const [personnage, setPersonnage] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -117,15 +133,14 @@ export default function FichePage() {
             )}
           </div>
         </div>
-{/* Sorts */}
-{(d?.voice || d?.voiceName) && (
-  <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:8,padding:'1rem',marginBottom:12}}>
-    <div style={{fontSize:9,color:'#6B6589',textTransform:'uppercase' as const,letterSpacing:'0.07em',marginBottom:8,fontWeight:700}}>
-      Sorts disponibles
-    </div>
-    <SortsSection voiceId={d.voice?.id || d.voiceId || 'universelle'} vUniv={d.vUniv||10} vSpec={d.vSpec||10} esprit={d.finalStats?.Esprit||30} />
-  </div>
-)}
+        {/* Sorts — la Voix Universelle existe toujours, donc la section s'affiche toujours */}
+        <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:8,padding:'1rem',marginBottom:12}}>
+          <div style={{fontSize:9,color:'#6B6589',textTransform:'uppercase' as const,letterSpacing:'0.07em',marginBottom:8,fontWeight:700}}>
+            Sorts disponibles
+          </div>
+          <SortsSection voiceId={resolveVoiceId(d)} vUniv={d?.vUniv ?? 10} vSpec={d?.vSpec ?? 10} esprit={d?.finalStats?.Esprit ?? 30} />
+        </div>
+
         {/* Équipement */}
         {(d?.weapon || d?.armor) && (
           <div style={{background:'#1A1828',border:'1px solid #2E2B45',borderRadius:8,padding:'1rem',marginBottom:12}}>

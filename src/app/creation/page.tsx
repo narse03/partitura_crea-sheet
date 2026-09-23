@@ -160,14 +160,17 @@ export default function CreationPage() {
       pv, pm, initBase, renommee: renTotal,
       ia: corps, id_: Math.floor((corps+agi)/2),
       voiceName: st.voice?.name || '',
+      voiceId: st.voice?.id || 'universelle',
     }
-    const { error } = await supabase.from('personnages').insert({
-      user_id: user.id,
+    const editId = new URLSearchParams(window.location.search).get('edit')
+    const fields = {
       nom: st.nom || 'Personnage sans nom',
       race: st.race?.name || '',
       data,
-      is_public: false,
-    })
+    }
+    const { error } = editId
+      ? await supabase.from('personnages').update(fields).eq('id', editId).eq('user_id', user.id)
+      : await supabase.from('personnages').insert({ ...fields, user_id: user.id, is_public: false })
     setSaving(false)
     if (!error) window.location.href = '/personnages'
     else alert('Erreur lors de la sauvegarde : ' + error.message)
