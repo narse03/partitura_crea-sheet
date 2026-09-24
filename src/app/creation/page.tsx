@@ -17,7 +17,7 @@ const RACES = [
   {id:'nain',name:'Nain',ren:3,statAdj:{Corps:5,Volonté:5,Agilité:-5,Présence:-5},compBonus:{Endurance:5},
    aff:'Ossature Dense — −1 Fatigue physique par scène.',
    don:[{l:'Éveil I',t:'Ignore 2 premiers pts Fatigue'},{l:'Éveil II',t:'Réduction armure +2'},{l:'Éveil III',t:'Immunité à la peur'}]},
-  {id:'saurien',name:'Saurien',ren:3,statAdj:{Corps:5,Perception:5,Esprit:-5,Présence:-5},compBonus:{'Survie physique':5},
+  {id:'saurien',name:'Saurien',ren:3,statAdj:{Corps:5,Perception:5,Esprit:-5,Présence:-5},compBonus:{'Survie':5},
    aff:'Sang Ancien — Résistance chaleur et toxines.',
    don:[{l:'Éveil I',t:'+5 IA 1er tour'},{l:'Éveil II',t:'Immunité au poison'},{l:'Éveil III',t:'Récup. 10 PV après mise à terre ennemi'}]},
   {id:'manst',name:'Manst',ren:3,statAdj:{Corps:5,Agilité:5,Volonté:5,Présence:-5,Esprit:-5},compBonus:{},
@@ -26,7 +26,7 @@ const RACES = [
   {id:'lumeris',name:'Luméris',ren:2,statAdj:{Esprit:5,Volonté:5,Perception:3,Corps:-5,Présence:-5},compBonus:{},
    aff:'Peau Chromatique — −10 Tromperie, +5 coordination alliés.',
    don:[{l:'Éveil I',t:'Résonance des Lieux 1×/scénario'},{l:'Éveil II',t:'Résonance étendue'},{l:'Éveil III',t:'Méditation +5 Esprit & Perception'}]},
-  {id:'aelos',name:'Aélos',ren:3,statAdj:{Agilité:5,Perception:5,Corps:-5,Volonté:-5},compBonus:{'Maniement Armes':5},
+  {id:'aelos',name:'Aélos',ren:3,statAdj:{Agilité:5,Perception:5,Corps:-5,Volonté:-5},compBonus:{'Maniement armes':5},
    aff:'Souvenir des Ailes — Vol (3 PV/tour). Ignore dégâts de chute.',
    don:[{l:'Éveil I',t:'+5 Perception extérieur'},{l:'Éveil II',t:'Plus de malus décollage'},{l:'Éveil III',t:'Plus aucun malus en vol'}]},
   {id:'felcan',name:'Felcan',ren:4,statAdj:{Agilité:5,Perception:5,Corps:-5,Présence:-5},compBonus:{},felcanVoix:true,
@@ -44,10 +44,10 @@ const RACES = [
 ] as any[]
 
 const SKILLS: Record<string,string[]> = {
-  Corps:['Athlétisme','Force brute','Endurance','Résistance physique','Survie physique','Natation','Combat à mains nues','Maniement armes lourdes'],
-  Agilité:['Esquive','Parade','Discrétion','Dextérité','Acrobatie','Tir','Maniement Armes','Initiative'],
-  Esprit:['Connaissance des mondes','Histoire','Arcanes','Investigation','Artisanat','Médecine'],
-  Volonté:['Sang-froid','Détermination','Concentration','Discipline mentale','Résilience mentale','Méditation','Leadership'],
+  Corps:['Athlétisme','Force brute','Endurance','Résistance physique','Survie','Natation','Combat à mains nues','Maniement armes lourdes'],
+  Agilité:['Esquive','Parade','Discrétion','Dextérité','Acrobatie','Tir','Maniement armes','Initiative','Vol'],
+  Esprit:['Connaissance des mondes','Histoire','Arcanes','Investigation','Artisanat','Médecine','Stratégie','Lettres'],
+  Volonté:['Sang-froid','Détermination','Concentration','Discipline mentale','Résilience mentale','Méditation','Leadership','Foi'],
   Présence:['Persuasion','Diplomatie','Tromperie','Représentation','Séduction','Commandement','Marchandage','Intimidation','Réseau','Étiquette','Déguisement'],
   Perception:['Observation','Écoute','Intuition','Pistage','Recherche','Orientation'],
 }
@@ -75,6 +75,7 @@ const initState = () => ({
   step: 1,
   race: null as any,
   hPicks: [] as string[],
+  hComp: '' as string,
   base: {Corps:20,Agilité:20,Esprit:20,Volonté:20,Présence:20,Perception:20} as Record<string,number>,
   major: [] as string[],
   minor: [] as string[],
@@ -84,7 +85,7 @@ const initState = () => ({
   vSpec: 10,
   voixPts: 40,
   weapon: null as any,
-  armor: {n:'Sans armure',red:0,iaM:0,agiM:0},
+  armor: {n:'Sans armure',red:0,iaM:0} as any,
   shield: {n:'Aucun',id:0},
   inv: [] as {n:string,qty:number}[],
   bourse: {SO:5,CA:0,DC:0},
@@ -103,6 +104,24 @@ function getRaceBonus(race: any, hPicks: string[], s: string) {
   let b = (race.statAdj||{})[s]||0
   if (race.humanChoice && hPicks.includes(s)) b += 5
   return b
+}
+function raceComp(st: any, sk: string): number {
+  return (raceComp(st, sk)) + (st.race?.humanChoice && st.hComp===sk ? 5 : 0)
+}
+function skillVal(st: any, sk: string): number {
+  return (st.major?.includes(sk)?10:st.minor?.includes(sk)?5:0) + raceComp(st, sk)
+}
+// Fiche de référence des règles (24/09/2026) : IA = carac. pilote + comp. d'arme − malus d'armure ;
+// Agilité pour la mêlée et la distance, Corps pour les mains nues et les armes lourdes à deux mains.
+function computeCombat(st: any, fs: Record<string,number>) {
+  const w = st.weapon
+  const heavy = !w || w.cat==='lourde'
+  const pilote = heavy ? fs['Corps'] : fs['Agilité']
+  const comp = !w ? skillVal(st,'Combat à mains nues') : w.cat==='lourde' ? skillVal(st,'Maniement armes lourdes') : w.cat==='distance' ? skillVal(st,'Tir') : skillVal(st,'Maniement armes')
+  const ia = pilote + comp - (st.armor?.iaM||0) - (st.shield?.iaM||0) - (w && w.exig>fs['Corps'] ? 10 : 0)
+  const def = Math.max(skillVal(st,'Esquive'), skillVal(st,'Parade'))
+  const id_ = Math.floor((fs['Corps']+fs['Agilité'])/2) + def + (st.shield?.id||0)
+  return { ia, id_ }
 }
 function getCercle(score: number) {
   return CERCLES.find((c:any) => score >= c.min && score <= c.max) || CERCLES[0]
@@ -158,7 +177,7 @@ export default function CreationPage() {
       ...st,
       finalStats: Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)])),
       pv, pm, initBase, renommee: renTotal,
-      ia: corps, id_: Math.floor((corps+agi)/2),
+      ...computeCombat(st, Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)]))),
       voiceName: st.voice?.name || '',
       voiceId: st.voice?.id || 'universelle',
     }
@@ -233,7 +252,7 @@ export default function CreationPage() {
               {pos && <div style={{fontSize:9,color:'#22C97A'}}>{pos}</div>}
               {neg && <div style={{fontSize:9,color:'#FF9068'}}>{neg}</div>}
               {r.felcanVoix && <div style={{fontSize:9,color:'#7F77DD'}}>+5 Voix</div>}
-              {r.humanChoice && <div style={{fontSize:9,color:'#7F77DD'}}>+5×2 stats</div>}
+              {r.humanChoice && <div style={{fontSize:9,color:'#7F77DD'}}>+5 carac · +5 comp.</div>}
             </div>
           )
         })}
@@ -254,7 +273,7 @@ export default function CreationPage() {
 
       {st.race?.humanChoice && (
         <div style={S.card}>
-          <p style={{...S.label,marginBottom:'0.5rem'}}>Choisissez 2 caractéristiques (+5 chacune)</p>
+          <p style={{...S.label,marginBottom:'0.5rem'}}>Choisissez 1 caractéristique (+5) et 1 compétence (+5)</p>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'7px'}}>
             {STATS.map(s => {
               const i = st.hPicks.indexOf(s)
@@ -263,7 +282,7 @@ export default function CreationPage() {
                   const picks = [...st.hPicks]
                   const idx = picks.indexOf(s)
                   if (idx >= 0) picks.splice(idx,1)
-                  else if (picks.length < 2) picks.push(s)
+                  else if (picks.length < 1) picks.push(s)
                   upd({hPicks:picks})
                 }} style={{
                   background: i===0?'rgba(127,119,221,.2)':i===1?'rgba(34,201,122,.15)':'#221F35',
@@ -274,16 +293,20 @@ export default function CreationPage() {
               )
             })}
           </div>
-          <p style={{fontSize:11,color:st.hPicks.length===2?'#22C97A':'#9B96B8',marginTop:'0.4rem'}}>
-            {st.hPicks.length===0?'Sélectionnez 2 caractéristiques':st.hPicks.length===1?`${st.hPicks[0]} ✓ — choisissez la 2e`:`+5 ${st.hPicks[0]} et +5 ${st.hPicks[1]} ✓`}
+          <p style={{fontSize:11,color:st.hPicks.length===1?'#22C97A':'#9B96B8',marginTop:'0.4rem'}}>
+            {st.hPicks.length===0?'Sélectionnez 1 caractéristique':`+5 ${st.hPicks[0]} ✓`}
           </p>
+          <select value={st.hComp} onChange={e => upd({hComp:e.target.value})} style={{...S.input,marginTop:'0.5rem'}}>
+            <option value="">Compétence au choix (+5)…</option>
+            {Object.values(SKILLS).flat().map(sk => <option key={sk} value={sk}>{sk}</option>)}
+          </select>
         </div>
       )}
 
       <div style={S.nav}>
         <div/>
-        <button style={{...S.btn,...S.btnP,opacity:!st.race||(st.race.humanChoice&&st.hPicks.length<2)?0.35:1}}
-          disabled={!st.race||(st.race.humanChoice&&st.hPicks.length<2)}
+        <button style={{...S.btn,...S.btnP,opacity:!st.race||(st.race.humanChoice&&(st.hPicks.length<1||!st.hComp))?0.35:1}}
+          disabled={!st.race||(st.race.humanChoice&&(st.hPicks.length<1||!st.hComp))}
           onClick={() => upd({step:2})}>Suivant →</button>
       </div>
     </div>
@@ -374,7 +397,7 @@ export default function CreationPage() {
                 {skills.map(sk => {
                   const isMaj = st.major.includes(sk)
                   const isMin = st.minor.includes(sk)
-                  const rb = st.race?.compBonus?.[sk]||0
+                  const rb = raceComp(st, sk)
                   const val = (isMaj?10:isMin?5:0)+rb
                   const over = val > cap
                   if (over && (isMaj||isMin)) warns.push(`${sk} dépasse ${cap}`)
@@ -457,8 +480,8 @@ export default function CreationPage() {
       {n:'Aura Impressionnante',e:'+10 IA premier tour'},{n:"Maître d'Arme",e:'+15 IA arme'},
       {n:'Canalisation Pure',e:'Ignore surcharge 1×/scénario'},{n:'Volonté Inflexible',e:'+15 vs peur/contrôle'},
       {n:'Corps Surentraîné',e:'+10 Corps permanent'},{n:'Mage Inspiré',e:'+10 PM permanents'},
-      {n:'Héritage Puissant',e:'Accès artefacts'},{n:'Héros Reconnu',e:'+15 Renommée'},
-      {n:'Talent Rare',e:'+15 compétence'},{n:'Destin Remarquable',e:'1 réussite auto/scénario'},
+      {n:'Héritage Puissant',e:'Accès artefacts'},{n:'Héros Reconnu',e:'+3 réserve de Renommée, +10 Écho personnel'},
+      {n:'Talent Rare',e:'+15 compétence'},{n:'Destin Remarquable',e:'1 relance/scénario (2e résultat imposé)'},
     ],desavantages:[
       {n:'Corps Fragile',d:'−10 PV permanents'},{n:'Peau sensible',d:'−1 réduction armure'},
       {n:'Vision nocturne faible',d:'−5 obscurité'},{n:'Fierté excessive',d:'Obligation narrative'},
@@ -687,13 +710,13 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
     {cat:'distance',n:'Arbalète',dmg:15,exig:35},
   ]
   const ARMORS_LIST = [
-    {cat:'legere',n:'Sans armure',red:0,iaM:0,agiM:0},{cat:'legere',n:'Cuir souple',red:2,iaM:0,agiM:0},
-    {cat:'legere',n:'Cuir renforcé',red:3,iaM:0,agiM:2},{cat:'intermediaire',n:'Brigandine',red:4,iaM:5,agiM:5},
-    {cat:'intermediaire',n:'Cotte de mailles',red:5,iaM:0,agiM:10},{cat:'lourde',n:'Demi-plate',red:6,iaM:10,agiM:10},
-    {cat:'lourde',n:'Armure complète',red:8,iaM:10,agiM:15},
+    {cat:'legere',n:'Sans armure',red:0,iaM:0},{cat:'legere',n:'Cuir souple',red:2,iaM:0},
+    {cat:'legere',n:'Cuir renforcé',red:3,iaM:0},{cat:'intermediaire',n:'Brigandine',red:4,iaM:5},
+    {cat:'intermediaire',n:'Cotte de mailles',red:5,iaM:5},{cat:'lourde',n:'Demi-plate',red:6,iaM:10},
+    {cat:'lourde',n:'Armure complète',red:8,iaM:10},
   ]
   const SHIELDS_LIST = [
-    {n:'Aucun',id:0},{n:'Petit bouclier',id:5},{n:'Bouclier standard',id:10},{n:'Grand bouclier',id:15,agiM:5},
+    {n:'Aucun',id:0},{n:'Petit bouclier',id:5},{n:'Bouclier standard',id:10},{n:'Grand bouclier',id:15,iaM:5},
   ]
 
   const Step6 = () => (
@@ -850,11 +873,9 @@ onBlur={e => upd({bio:e.target.value})}
   // ══════════════════════════════════════════════════════════════
   const Step8 = () => {
     const finalStats = Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)]))
-    const agiEff =  finalStats['Agilité'] - ((st.shield as any)?.agiM||0) - ((st.armor as any)?.agiM||0)
-    const ia = finalStats['Corps'] - (st.armor?.iaM||0) - (st.weapon?.exig>finalStats['Corps']?10:0)
-    const id_ = Math.floor((finalStats['Corps']+agiEff)/2) + (st.shield?.id||0)
+    const { ia, id_ } = computeCombat(st, finalStats)
     const allSkills = [...st.major,...st.minor].map(sk => {
-      const rb = st.race?.compBonus?.[sk]||0
+      const rb = raceComp(st, sk)
       return {n:sk, v:(st.major.includes(sk)?10:5)+rb, maj:st.major.includes(sk)}
     })
 
@@ -925,7 +946,7 @@ onBlur={e => upd({bio:e.target.value})}
         <div style={S.card}>
           <p style={{fontSize:10,textTransform:'uppercase' as const,letterSpacing:'0.07em',color:'#6B6589',marginBottom:'0.6rem',fontWeight:700}}>Équipement</p>
           <div style={{fontSize:12,display:'flex',flexDirection:'column' as const,gap:4}}>
-            {st.weapon && <div><span style={{color:'#9B96B8'}}>Arme : </span><strong style={{color:'#E8E6F0'}}>{st.weapon.n}</strong> (Dég.{st.weapon.dmg}+{Math.floor(finalStats['Corps']/10)})</div>}
+            {st.weapon && <div><span style={{color:'#9B96B8'}}>Arme : </span><strong style={{color:'#E8E6F0'}}>{st.weapon.n}</strong> (bonus {st.weapon.dmg} + {Math.floor(finalStats['Corps']/10)} Corps, dés selon la marge)</div>}
             {st.armor && <div><span style={{color:'#9B96B8'}}>Armure : </span><strong style={{color:'#E8E6F0'}}>{st.armor.n}</strong>{st.armor.red>0?` (−${st.armor.red} dég.)`:''}</div>}
             {st.shield?.id>0 && <div><span style={{color:'#9B96B8'}}>Bouclier : </span><strong style={{color:'#E8E6F0'}}>{st.shield.n}</strong> (+{st.shield.id} ID)</div>}
             {st.inv.length>0 && <div><span style={{color:'#9B96B8'}}>Inventaire : </span>{st.inv.map(i=>`${i.n}×${i.qty}`).join(', ')}</div>}
