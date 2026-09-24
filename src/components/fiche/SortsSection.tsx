@@ -10,7 +10,7 @@ const CERCLES = [
 ]
 
 const CAT_UNLOCK: Record<string,number> = {
-  mineurs:0, utilitaires:0, tactiques:31, signature:51, rituels:71
+  mineurs:0, utilitaires:31, tactiques:51, signature:71, rituels:86
 }
 const CAT_LABELS: Record<string,string> = {
   mineurs:'Gestes mineurs', utilitaires:'Utilitaires', tactiques:'Tactiques', signature:'Signature', rituels:'Rituels'
