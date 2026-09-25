@@ -23,7 +23,7 @@ const RACES = [
   {id:'manst',name:'Manst',ren:3,statAdj:{Corps:5,Agilité:5,Volonté:5,Présence:-5,Esprit:-5},compBonus:{},
    aff:'Colosse — Manie arme à 2 mains avec une seule.',
    don:[{l:'Éveil I',t:'Impact +2 dégâts'},{l:'Éveil II',t:'Corps +5'},{l:'Éveil III',t:'Charge Percutante 2×/scénario'}]},
-  {id:'lumeris',name:'Luméris',ren:2,statAdj:{Esprit:5,Volonté:5,Perception:3,Corps:-5,Présence:-5},compBonus:{},
+  {id:'lumeris',name:'Luméris',ren:2,statAdj:{Esprit:5,Volonté:5,Perception:5,Corps:-5,Présence:-5},compBonus:{},
    aff:'Peau Chromatique — −10 Tromperie, +5 coordination alliés.',
    don:[{l:'Éveil I',t:'Résonance des Lieux 1×/scénario'},{l:'Éveil II',t:'Résonance étendue'},{l:'Éveil III',t:'Méditation +5 Esprit & Perception'}]},
   {id:'aelos',name:'Aélos',ren:3,statAdj:{Agilité:5,Perception:5,Corps:-5,Volonté:-5},compBonus:{'Maniement armes':5},

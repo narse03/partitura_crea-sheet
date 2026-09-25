@@ -25,10 +25,10 @@ const SORTS: Record<string,Record<string,any[]>> = {
   universelle:{
     mineurs:[
       {n:'Petite Étincelle',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Allume flamme ou combustible'},
-      {n:'Main Propre',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Nettoie équipement ; +3 Étiquette 1 min'},
+      {n:'Main Propre',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Nettoie équipement ; +5 Étiquette 1 min'},
       {n:'Murmure Clair',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Message mental court (portée : visible)'},
       {n:'Outil de Fortune',diff:15,pm:3,type:'S',dur:'10 min',effet:'+5 Artisanat ou Dextérité pour une action'},
-      {n:'Flammèche',diff:15,pm:3,type:'S',dur:'1 min',effet:'Lumière faible ; +3 Observation'},
+      {n:'Flammèche',diff:15,pm:3,type:'S',dur:'1 min',effet:'Lumière faible ; +5 Observation'},
     ],
     utilitaires:[
       {n:'Chemin',diff:20,pm:6,type:'S',dur:'1 h',effet:'+10 Orientation'},
@@ -39,14 +39,14 @@ const SORTS: Record<string,Record<string,any[]>> = {
     ],
     tactiques:[
       {n:'Aux Aguets',diff:25,pm:8,type:'C',dur:'10 min',effet:'+5 Initiative et Observation'},
-      {n:'Pas Silencieux',diff:25,pm:8,type:'C',dur:'2 min',effet:'+8 Discrétion'},
+      {n:'Pas Silencieux',diff:25,pm:8,type:'C',dur:'2 min',effet:'+10 Discrétion'},
       {n:'Souffle Régulier',diff:25,pm:8,type:'I',dur:'3 tours',effet:'+5 Sang-froid'},
-      {n:'Boule de Lumière',diff:25,pm:8,type:'C',dur:'10 min',effet:'Lumière forte ; −3 Discrétion ennemie'},
+      {n:'Boule de Lumière',diff:25,pm:8,type:'C',dur:'10 min',effet:'Lumière forte ; −5 Discrétion ennemie'},
       {n:'Façade Convenable',diff:25,pm:8,type:'S',dur:'1 h',effet:'+5 Persuasion et Étiquette'},
     ],
     signature:[
       {n:'Bouclier d\'Urgence',diff:30,pm:10,type:'I',dur:'1 attaque',effet:'+5 ID contre une attaque'},
-      {n:'Passage Discret',diff:30,pm:10,type:'C',dur:'2 min',effet:'Groupe +8 Discrétion'},
+      {n:'Passage Discret',diff:30,pm:10,type:'C',dur:'2 min',effet:'Groupe +10 Discrétion'},
       {n:'Solution Improbable',diff:35,pm:12,type:'S',dur:'Instantané',effet:'+5 IA ou ID pour une action'},
     ],
     rituels:[
@@ -59,14 +59,14 @@ const SORTS: Record<string,Record<string,any[]>> = {
     mineurs:[
       {n:'Fracas',diff:15,pm:3,type:'I',dur:'1 attaque',effet:'+3 dégâts prochaine attaque'},
       {n:'Frappe du Poing Dur',diff:15,pm:3,type:'I',dur:'1 attaque',effet:'Mains nues +5 IA'},
-      {n:'Posture de Menace',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Cible −3 IA contre lanceur'},
-      {n:'Cri de Guerre',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Allié +3 IA prochaine attaque'},
+      {n:'Posture de Menace',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Cible −5 IA contre lanceur'},
+      {n:'Cri de Guerre',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Allié +5 IA prochaine attaque'},
       {n:'Analyse Martiale',diff:15,pm:3,type:'S',dur:'3 tours',effet:'+5 IA contre cible observée'},
-      {n:'Garde Rapide',diff:15,pm:3,type:'I',dur:'1 attaque',effet:'+3 ID contre une attaque'},
+      {n:'Garde Rapide',diff:15,pm:3,type:'I',dur:'1 attaque',effet:'+5 ID contre une attaque'},
     ],
     utilitaires:[
       {n:'Vitesse de Frappe',diff:20,pm:6,type:'I',dur:'1 tour',effet:'+5 Initiative'},
-      {n:'Enchaînement',diff:20,pm:6,type:'I',dur:'1 tour',effet:'2 attaques ce tour, chaque −2 IA'},
+      {n:'Enchaînement',diff:20,pm:6,type:'I',dur:'1 tour',effet:'2 attaques ce tour, chaque −5 IA'},
       {n:'Sacrifice',diff:20,pm:6,type:'I',dur:'1 attaque',effet:'Sacrifie 3 PV → +5 dégâts'},
       {n:'Regard de Duel',diff:20,pm:6,type:'S',dur:'1 tour',effet:'Cible −5 IA contre lanceur'},
       {n:'Coup dans l\'Arme',diff:20,pm:6,type:'I',dur:'1 tour',effet:'Cible −5 IA'},
@@ -76,20 +76,20 @@ const SORTS: Record<string,Record<string,any[]>> = {
       {n:'Charge Percutante',diff:25,pm:8,type:'S',dur:'Instantané',effet:'+5 IA et repousse cible'},
       {n:'Brise-Garde',diff:25,pm:8,type:'I',dur:'1 attaque',effet:'Ignore parade ou bouclier'},
       {n:'Coup Décisif',diff:25,pm:8,type:'I',dur:'1 attaque',effet:'+5 dégâts'},
-      {n:'Pression Martiale',diff:25,pm:8,type:'S',dur:'3 tours',effet:'Ennemi −3 ID contre lanceur'},
+      {n:'Pression Martiale',diff:25,pm:8,type:'S',dur:'3 tours',effet:'Ennemi −5 ID contre lanceur'},
     ],
     signature:[
       {n:'Peau de Guerre',diff:30,pm:10,type:'S',dur:'3 tours',effet:'Réduction −5 dégâts physiques'},
       {n:'Fracasse-Écu',diff:30,pm:10,type:'I',dur:'1 attaque',effet:'Détruit bouclier non magique'},
-      {n:'Tempête de Lames',diff:30,pm:10,type:'S',dur:'1 tour',effet:'Frappe 2 ennemis proches +3 IA'},
+      {n:'Tempête de Lames',diff:30,pm:10,type:'S',dur:'1 tour',effet:'Frappe 2 ennemis proches +5 IA'},
       {n:'Défi du Titan',diff:35,pm:12,type:'S',dur:'3 tours',effet:'+5 IA, +5 dégâts, +5 Sang-froid'},
       {n:'Onde de Choc',diff:35,pm:12,type:'S',dur:'Instantané',effet:'Ennemis Acrobatie Diff 25 ou chute'},
     ],
     rituels:[
       {n:'Serment de Duel',diff:40,pm:15,pv:2,type:'R',incant:'15 min',dur:'2 min',effet:'2 combattants +5 IA l\'un contre l\'autre'},
-      {n:'Marque du Combattant',diff:45,pm:18,pv:2,type:'R',incant:'30 min',dur:'24 h',effet:'Arme enchantée +3 IA'},
+      {n:'Marque du Combattant',diff:45,pm:18,pv:2,type:'R',incant:'30 min',dur:'24 h',effet:'Arme enchantée +5 IA'},
       {n:'Peau de Bataille',diff:55,pm:30,pv:3,type:'R',incant:'45 min',dur:'5 min',effet:'Réduction −8 dégâts physiques'},
-      {n:'Champion de Guerre',diff:75,pm:55,pv:6,type:'R',incant:'3 h',dur:'5 min',effet:'+8 IA / +5 dégâts / +5 ID'},
+      {n:'Champion de Guerre',diff:75,pm:55,pv:6,type:'R',incant:'3 h',dur:'5 min',effet:'+10 IA / +5 dégâts / +5 ID'},
     ]
   },
   sauvage:{
@@ -117,7 +117,7 @@ const SORTS: Record<string,Record<string,any[]>> = {
     signature:[
       {n:'Forme Bestiale',diff:30,pm:10,type:'S',dur:'3 tours',effet:'+5 IA, +5 Athlétisme, mains nues +5 dég.'},
       {n:'Peau d\'Écorce',diff:30,pm:10,type:'S',dur:'5 tours',effet:'Réduction −5 dégâts physiques'},
-      {n:'Rage du Sang',diff:35,pm:12,type:'S',dur:'3 tours',effet:'+8 dégâts mais −3 ID'},
+      {n:'Rage du Sang',diff:35,pm:12,type:'S',dur:'3 tours',effet:'+8 dégâts mais −5 ID'},
       {n:'Sens du Prédateur',diff:30,pm:10,type:'C',dur:'10 min',effet:'+10 Observation, Pistage, Intuition'},
     ],
     rituels:[
@@ -130,8 +130,8 @@ const SORTS: Record<string,Record<string,any[]>> = {
     mineurs:[
       {n:'Prière Apaisante',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Supprime peur légère. +5 Sang-froid'},
       {n:'Geste de Guérison',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Soigne 1d6+2 PV. Stoppe saignement'},
-      {n:'Mot de Réprobation',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Cible −3 IA'},
-      {n:'Lumière Sacrée',diff:15,pm:3,type:'S',dur:'10 min',effet:'Lumière ; −3 Discrétion créatures sensibles'},
+      {n:'Mot de Réprobation',diff:15,pm:3,type:'I',dur:'1 tour',effet:'Cible −5 IA'},
+      {n:'Lumière Sacrée',diff:15,pm:3,type:'S',dur:'10 min',effet:'Lumière ; −5 Discrétion créatures sensibles'},
       {n:'Bénédiction du Courage',diff:15,pm:3,type:'I',dur:'1 tour',effet:'+5 Sang-froid et Leadership'},
     ],
     utilitaires:[
@@ -145,11 +145,11 @@ const SORTS: Record<string,Record<string,any[]>> = {
       {n:'Châtiment Mineur',diff:25,pm:8,type:'I',dur:'Instantané',effet:'2d6 dégâts sacrés (portée 15m)'},
       {n:'Guérison Profonde',diff:25,pm:8,type:'I',dur:'Instantané',effet:'Soigne 2d6+6 PV'},
       {n:'Vœu de Vérité',diff:25,pm:8,type:'S',dur:'2 min',effet:'Cible −10 Tromperie'},
-      {n:'Aura des Fidèles',diff:25,pm:8,type:'C',dur:'3 tours',effet:'Alliés proches +3 IA ou +3 ID'},
+      {n:'Aura des Fidèles',diff:25,pm:8,type:'C',dur:'3 tours',effet:'Alliés proches +5 IA ou +5 ID'},
       {n:'Psaume de Groupe',diff:25,pm:8,type:'S',dur:'5 min',effet:'Groupe +5 Sang-froid et Leadership'},
     ],
     signature:[
-      {n:'Lance Divine',diff:30,pm:10,type:'I',dur:'Instantané',effet:'3d6 dégâts sacrés et −3 IA (portée 20m)'},
+      {n:'Lance Divine',diff:30,pm:10,type:'I',dur:'Instantané',effet:'3d6 dégâts sacrés et −5 IA (portée 20m)'},
       {n:'Résurrection de l\'Élan',diff:30,pm:10,type:'I',dur:'Instantané',effet:'Cible à terre revient à 10 PV'},
       {n:'Jugement du Ciel',diff:35,pm:12,type:'I',dur:'Instantané',effet:'4d6 dégâts sacrés (portée 25m)'},
     ],
@@ -160,7 +160,7 @@ const SORTS: Record<string,Record<string,any[]>> = {
   },
   ombres:{
     mineurs:[
-      {n:'Diversion',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Cible −3 Observation 1 tour'},
+      {n:'Diversion',diff:15,pm:3,type:'I',dur:'Instantané',effet:'Cible −5 Observation 1 tour'},
       {n:'Ombre',diff:15,pm:3,type:'S',dur:'3 tests',effet:'+5 Discrétion sur 3 jets'},
       {n:'Pas Feutrés',diff:15,pm:3,type:'C',dur:'1 min',effet:'+5 Discrétion déplacements'},
       {n:'Ombre sur le Visage',diff:15,pm:3,type:'S',dur:'10 min',effet:'+5 Tromperie, −5 Observation'},
@@ -177,18 +177,18 @@ const SORTS: Record<string,Record<string,any[]>> = {
       {n:'Sournois',diff:25,pm:8,type:'I',dur:'1 attaque',effet:'Si cible ne voit pas : +5 dégâts'},
       {n:'Lame Muette',diff:25,pm:8,type:'S',dur:'1 min',effet:'Arme silencieuse ; +5 Discrétion attaque'},
       {n:'Vision Nocturne Volée',diff:25,pm:8,type:'C',dur:'10 min',effet:'Ignore pénombre ; +5 Observation'},
-      {n:'Double d\'Ombre',diff:25,pm:8,type:'S',dur:'1 tour',effet:'Cible −5 Observation et −3 IA'},
+      {n:'Double d\'Ombre',diff:25,pm:8,type:'S',dur:'1 tour',effet:'Cible −5 Observation et −5 IA'},
       {n:'Fil du Voleur',diff:25,pm:8,type:'S',dur:'Instantané',effet:'Récupère objet léger à distance'},
     ],
     signature:[
       {n:'Bond d\'Ombre',diff:30,pm:10,type:'I',dur:'Instantané',effet:'Téléportation courte 5m ; +5 IA suivante'},
-      {n:'Cauchemars',diff:35,pm:12,type:'S',dur:'3 tours',effet:'Cible −5 Sang-froid et −3 IA'},
+      {n:'Cauchemars',diff:35,pm:12,type:'S',dur:'3 tours',effet:'Cible −5 Sang-froid et −5 IA'},
       {n:'Assassinat Parfait',diff:35,pm:12,type:'I',dur:'1 attaque',effet:'Si surprise : +10 IA et +10 dégâts'},
       {n:'Brume',diff:30,pm:10,type:'C',dur:'3 tours',effet:'Zone : alliés +5 Discrétion, ennemis −5 Obs.'},
     ],
     rituels:[
       {n:'Voile du Visage',diff:40,pm:15,pv:2,type:'R',incant:'15 min',dur:'1 h',effet:'+10 Tromperie, −10 Observation pour être reconnu'},
-      {n:'Brume d\'Infiltration',diff:75,pm:55,pv:6,type:'R',incant:'4 h',dur:'10 min',effet:'Zone : alliés +8 Discrétion, ennemis −3 IA'},
+      {n:'Brume d\'Infiltration',diff:75,pm:55,pv:6,type:'R',incant:'4 h',dur:'10 min',effet:'Zone : alliés +10 Discrétion, ennemis −5 IA'},
     ]
   },
   erudits:{
@@ -243,14 +243,14 @@ const SORTS: Record<string,Record<string,any[]>> = {
     tactiques:[
       {n:'Sceller un Esprit',diff:25,pm:8,type:'I',dur:'Instantané',effet:'Capture esprit récent en réserve'},
       {n:'Affûtage Spirituel',diff:25,pm:8,type:'S',dur:'Permanent',effet:'Arme sertie +3 dégâts'},
-      {n:'Armature Fidèle',diff:25,pm:8,type:'S',dur:'Permanent',effet:'Armure sertie +3 ID, −1 malus gêne'},
+      {n:'Armature Fidèle',diff:25,pm:8,type:'S',dur:'Permanent',effet:'Armure sertie +5 ID, −1 malus gêne'},
       {n:'Consumer',diff:25,pm:8,type:'I',dur:'Instantané',effet:'Détruit esprit → relance pour cible'},
       {n:'Gemme Gardienne',diff:25,pm:8,type:'S',dur:'Permanent',effet:'Résiste vol (Discrétion Diff 30)'},
     ],
     signature:[
       {n:'Identification III',diff:30,pm:10,type:'S',dur:'Instantané',effet:'Révèle type esprit, rang, tendance'},
-      {n:'Esprit de Lame',diff:30,pm:10,type:'S',dur:'Permanent',effet:'Arme liée +3 IA, 1 relance martiale/scène'},
-      {n:'Forge de Combat',diff:35,pm:12,type:'S',dur:'Permanent',effet:'Arme magique +3 IA, +3 dégâts, 1 propriété'},
+      {n:'Esprit de Lame',diff:30,pm:10,type:'S',dur:'Permanent',effet:'Arme liée +5 IA, 1 relance martiale/scène'},
+      {n:'Forge de Combat',diff:35,pm:12,type:'S',dur:'Permanent',effet:'Arme magique +5 IA, +3 dégâts, 1 propriété'},
       {n:'Éclat Emprisonné',diff:30,pm:10,type:'S',dur:'Permanent',effet:'Objet à charge : 1d6 ou effet simple 1×/jour'},
     ],
     rituels:[
