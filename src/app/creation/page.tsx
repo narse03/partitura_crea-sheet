@@ -685,7 +685,7 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
 
       {st.voice && (
         <div style={{...S.warn,color:'#9B96B8',background:'rgba(127,119,221,.08)',border:'1px solid rgba(127,119,221,.2)'}}>
-          ⚠ Sorts attribués par Vaela/MJ · 1 seul Rituel actif · 1 seul sort Instantané/tour · PM perdus sur échec
+          ⚠ Sorts attribués par la main de Vaela (Meneur) · 1 seul sort Instantané par tour · 1 seul rituel tenu · PM dépensés même en cas d'échec
         </div>
       )}
 

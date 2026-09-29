@@ -1,0 +1,3272 @@
+{
+ "universelle": {
+  "titres": {
+   "Novice": "L’Éveillé",
+   "Pratiquant": "Le Porteur du Cercle",
+   "Expert": "Le Tisseur",
+   "Maître": "L’Arbitre",
+   "Magistère": "Le Grand Cercle"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Petite Étincelle",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Allume un combustible dans 3 m. Sur une cible inflammable sans protection : 1d4 dégâts de feu (1 tour)."
+    },
+    {
+     "n": "Main Propre",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Purge équipement ou tenue de saleté, sang, toxines légères. +5 Étiquette pour 1 heure dans un contexte social."
+    },
+    {
+     "n": "Murmure Clair",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Transmet un message mental court (20 mots) à une cible en vue. La cible ressent l’origine sans pouvoir la localiser précisément."
+    },
+    {
+     "n": "Outil de Fortune",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "10 minutes",
+     "effet": "Façonne la magie en extension de la main. +5 Artisanat ou Dextérité pour une action précise (crochetage, suture, fabrication)."
+    },
+    {
+     "n": "Flammèche",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 minute",
+     "effet": "Crée une flamme stable dans la paume. Lumière faible sur 3 m. +5 Observation dans l’obscurité. Peut allumer ou chauffer un petit objet."
+    },
+    {
+     "n": "Brise-Chute",
+     "diff": 15,
+     "pm": 3,
+     "type": "X",
+     "dur": "Instantané",
+     "effet": "Réduit les dégâts d’une chute de 2d6. Peut être lancé sur soi ou sur une cible en vue à 5 m."
+    },
+    {
+     "n": "Paume Ferme",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "3 tours",
+     "effet": "Ancre la prise. +5 Athlétisme pour saisir, retenir ou ne pas lâcher. +5 ID contre tout désarmement."
+    },
+    {
+     "n": "Coup Sec",
+     "diff": 15,
+     "pm": 4,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Poussée télékinétique. Portée 8 m. Dégâts : dés de la marge + 4. La cible recule d’1 m (Athlétisme Diff 15 pour résister)."
+    },
+    {
+     "n": "Voix Portée",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "5 minutes",
+     "effet": "Amplifie la voix à 50 m sans déformation. +5 Intimidation ou Leadership lors d’une prise de parole."
+    },
+    {
+     "n": "Éclat de Lumière",
+     "diff": 15,
+     "pm": 4,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Flash éblouissant. Portée 5 m. Sang-froid Diff 15 : en échec, aveuglé 1 tour (−5 IA) ; en succès, −5 IA pendant 1 tour."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Chemin",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "+10 Orientation dans n’importe quel environnement. Le lanceur ne peut pas se perdre involontairement pendant la durée."
+    },
+    {
+     "n": "Assainissement",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Neutralise poison, venin ou maladie dans l’eau ou un aliment (jusqu’à 5 litres). Peut purifier une plaie infectée (+5 Médecine)."
+    },
+    {
+     "n": "Sens Aiguisés",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 minutes",
+     "effet": "+5 Observation et Écoute. Perçoit les détails à des niveaux de luminosité qui rendraient un œil ordinaire inutile."
+    },
+    {
+     "n": "Sentir la Vie",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "5 minutes",
+     "effet": "Détecte les vivants dans 20 m (silhouettes floues, pas d’identité). +5 Intuition contre les embuscades pendant la durée."
+    },
+    {
+     "n": "Regard Utile",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Comprend la fonction, l’origine et l’état d’un objet ou d’un mécanisme. +10 Investigation sur cet élément."
+    },
+    {
+     "n": "Réparation Rapide",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Restaure la cohérence d’un objet non magique endommagé. +10 Artisanat pour la réparation. Ne s’applique pas à ce qui a été détruit volontairement par magie."
+    },
+    {
+     "n": "Fil Invisible",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 minutes",
+     "effet": "Tend un fil de force entre deux points fixes (jusqu’à 10 m). Déclenche une impulsion mentale chez le lanceur si coupé. Athlétisme Diff 20 pour le rompre."
+    },
+    {
+     "n": "Voix Muette",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "3 tours",
+     "effet": "Supprime tout son dans un rayon de 2 m autour du lanceur. Toute communication verbale dans la zone devient impossible. +10 Discrétion."
+    },
+    {
+     "n": "Poussée Mentale",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Télékinésie ciblée. Portée 12 m. Dégâts : dés de la marge + 7. La cible est renversée (Athlétisme Diff 20 pour rester debout). Déplace librement des objets jusqu’à 30 kg."
+    },
+    {
+     "n": "Bouclier de Paume",
+     "diff": 20,
+     "pm": 6,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Crée un écran de force. Absorbe jusqu’à 10 dégâts d’une attaque physique ou magique. Le surplus passe normalement."
+    },
+    {
+     "n": "Verrou Spontané",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Verrouille par la magie une porte, un contenant ou un mécanisme. Diff 25 pour crocheter. Levé par le lanceur à volonté."
+    },
+    {
+     "n": "Récupération",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Rappelle à la main un objet personnel dans 15 m. Si l’objet est tenu par quelqu’un d’autre : Corps Diff 20 pour résister au rappel."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Aux Aguets",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "10 minutes",
+     "effet": "+5 Initiative et Observation. Le lanceur ne peut pas être surpris tant que le sort est actif."
+    },
+    {
+     "n": "Pas Silencieux",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "2 minutes",
+     "effet": "+10 Discrétion. Sons de déplacement annulés. Tout sort lancé pendant la durée dissipe immédiatement le voile."
+    },
+    {
+     "n": "Boule de Lumière",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "10 minutes",
+     "effet": "Lumière puissante sur 10 m, pilotable par concentration. −5 Discrétion pour les ennemis dans la zone. Dirigée en éblouissement direct : Sang-froid Diff 20 ou aveuglé 1 tour."
+    },
+    {
+     "n": "Souffle Régulier",
+     "diff": 25,
+     "pm": 8,
+     "type": "I",
+     "dur": "3 tours",
+     "effet": "Stabilise rythme et respiration. +5 Sang-froid immédiat. Supprime 1 niveau de Peur ou de Panique. Sans effet sur un personnage en Agonie."
+    },
+    {
+     "n": "Façade Convenable",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Ajuste l’apparence superficielle (tenue, teint, voix légèrement modifiée). +5 Persuasion et Étiquette pour maintenir une identité crédible."
+    },
+    {
+     "n": "Abri",
+     "diff": 25,
+     "pm": 8,
+     "type": "R",
+     "dur": "10 heures",
+     "effet": "Matérialise un abri résistant pour 7 personnes. Résiste aux intempéries et aux prédateurs. +5 Survie pour le groupe pendant la durée.",
+     "typeTexte": "Rituel court (30 min)"
+    },
+    {
+     "n": "Bras de Force",
+     "diff": 25,
+     "pm": 9,
+     "type": "C",
+     "dur": "2 tours",
+     "effet": "Télékinésie de maîtrise. Portée 15 m. Immobilise une cible humanoïde (Athlétisme Diff 30 pour se libérer). Inflige 1d8 dégâts par tour de maintien."
+    },
+    {
+     "n": "Frappe Universelle",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Frappe télékinétique concentrée. Portée 15 m. Dégâts : dés de la marge + 10. Ignore l’armure légère. Peut viser une zone précise du corps (−5 IA si tête ; −5 à une compétence physique si membre)."
+    },
+    {
+     "n": "Voile de Brume",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "5 minutes",
+     "effet": "Brouillard dense dans une zone de 6 m de rayon. −5 Observation et Tir dans la zone. Le lanceur voit à travers normalement."
+    },
+    {
+     "n": "Contrecoup",
+     "diff": 30,
+     "pm": 9,
+     "type": "X",
+     "dur": "Instantané",
+     "effet": "Réfléchit une partie du dégât reçu. Réduit les dégâts entrants de 1d6 et renvoie ce montant à l’attaquant (contact ou <= 5 m). Ne fonctionne pas contre les attaques à distance au-delà de 10 m."
+    },
+    {
+     "n": "Cri Silencieux",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Impulsion mentale de douleur dans une zone de 5 m de rayon. Tous les ennemis : Sang-froid Diff 25 ou −5 IA pendant 2 tours. Échec critique : étourdi 1 tour."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Bouclier d’Urgence",
+     "diff": 30,
+     "pm": 10,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Écran de force. Absorbe jusqu’à 25 dégâts. Le surplus revient au lanceur. Peut être lancé pour protéger un allié à 5 m."
+    },
+    {
+     "n": "Passage Discret",
+     "diff": 30,
+     "pm": 10,
+     "type": "C",
+     "dur": "2 minutes",
+     "effet": "Le groupe (jusqu’à 6 personnes) bénéficie de +10 Discrétion. Sons de groupe supprimés. Tout sort actif lancé par un membre rompt le voile pour tout le groupe."
+    },
+    {
+     "n": "Carte Mentale",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "24 heures",
+     "effet": "Grave un espace mémorisé dans l’esprit. +10 Orientation et Investigation dans cet espace. Peut être partagée avec une cible consentante par contact."
+    },
+    {
+     "n": "Main de Fer",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Télékinésie brutale. Portée 20 m. Dégâts : dés de la marge + 14. Cible projetée jusqu’à 5 m (Athlétisme Diff 35 pour résister). Collision avec un obstacle : +1d6 dégâts supplémentaires. Terreur Magique Diff 25."
+    },
+    {
+     "n": "Armure de Nécessité",
+     "diff": 30,
+     "pm": 11,
+     "type": "S",
+     "dur": "Jusqu’à épuisement",
+     "effet": "Enveloppe le lanceur d’une couche de force (distorsion visible de l’air). Absorbe 30 dégâts au total avant de se dissiper. Dure jusqu’à épuisement ou fin de scène."
+    },
+    {
+     "n": "Lien Vital",
+     "diff": 35,
+     "pm": 11,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Transfère jusqu’à 25 PV du lanceur vers une cible consentante à 5 m. Si le lanceur descend sous 10 PV suite au transfert : Corps Diff 30 ou Fatigue Magique immédiate."
+    },
+    {
+     "n": "Éclat Télékinétique",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Frappe multiple. Jusqu’à 3 cibles dans 15 m. Un jet unique ; chacune subit les dés de la marge + 10. Toutes les cibles : Sang-froid Diff 25 ou reculent (−5 IA au prochain tour)."
+    },
+    {
+     "n": "Souffle du Vide",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Aspiration télékinétique dans une zone de 10 m de rayon. Tout être : Athlétisme Diff 30 ou déplacé de 4 m vers le lanceur. Collision avec un obstacle ou un autre être : 2d10 dégâts. Terreur Magique Diff 25."
+    },
+    {
+     "n": "Solution Improbable",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Jusqu’à dépense",
+     "effet": "Force les probabilités. +10 à n’importe quelle action IA ou ID imminente. Peut être transféré à un allié à 5 m. Reste actif jusqu’à utilisation."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Pacte de Parole",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "Accomplissement",
+     "effet": "Mentir sur l’objet du pacte devient impossible entre les participants, jusqu’à son accomplissement (un an et un jour au plus). Briser le pacte volontairement : 4d10 dégâts au fautif et marque du parjure au front."
+    },
+    {
+     "n": "Bénédiction de Chance",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "45 min",
+     "dur": "24 h",
+     "effet": "Jusqu’à sept alliés : chacun peut relancer un jet de son choix, une seule fois, et garde le second résultat."
+    },
+    {
+     "n": "Clé Universelle",
+     "diff": 55,
+     "pm": 30,
+     "pv": 2,
+     "type": "R",
+     "incant": "45 min",
+     "dur": "24 h",
+     "effet": "Ouvre automatiquement toute serrure non magique de Diff 40 ou moins et toute serrure magique de Diff 45 ou moins. Au-delà : opposition Voix contre Voix du créateur."
+    },
+    {
+     "n": "Voix Liée",
+     "diff": 55,
+     "pm": 32,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "7 jours",
+     "effet": "Communication mentale entre sept personnes au plus, à toute distance dans un même monde. +5 Leadership si coordination active. Chacun perçoit les émotions brutes des autres."
+    },
+    {
+     "n": "Masque Social",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "7 jours",
+     "effet": "+20 Persuasion, Tromperie, Étiquette pour maintenir une identité. Voix, traits et manières s’ajustent. Seule une magie qui annule les sorts, ou la volonté du lanceur, le fait tomber."
+    },
+    {
+     "n": "Coffre Scellé",
+     "diff": 60,
+     "pm": 38,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "Permanent",
+     "effet": "Serrure magique Diff 60 sur un contenant ou une porte. Alerte le lanceur par impulsion mentale à chaque tentative d’ouverture. L’objet devient résistant aux dommages physiques ordinaires tant que le sceau tient."
+    },
+    {
+     "n": "Barrière Improvisée",
+     "diff": 65,
+     "pm": 42,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "24 h",
+     "effet": "Mur invisible de force (jusqu’à 30 m x 5 m). Armure 15, 150 PV. Bloque passage, projectiles et toute magie de Diff inférieure à 60. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Sommeil Réparateur",
+     "diff": 65,
+     "pm": 45,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "1 repos",
+     "effet": "Jusqu’à 20 dormeurs récupèrent tous leurs PV et perdent toute Fatigue ; les blessures graves de moins d’un jour se referment. Annule les cauchemars et les effets de privation de sommeil. Sur une cible non consentante : Corps Diff 35 pour résister."
+    },
+    {
+     "n": "Échange de Lieux",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Instantané",
+     "effet": "Rituel tenu. Deux cibles marquées pendant l’incantation échangent leur position, à toute distance dans un même monde. Cible non consentante : opposition Voix contre Voix. Empreinte Magique permanente sur les deux cibles. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Destin Tordu",
+     "diff": 75,
+     "pm": 55,
+     "pv": 6,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "24 h",
+     "effet": "Groupe entier : +10 IA et +10 ID. Une fois pendant la durée, chaque membre peut transformer un échec en réussite simple."
+    },
+    {
+     "n": "Serment de l’Aventure",
+     "diff": 80,
+     "pm": 60,
+     "pv": 8,
+     "type": "R",
+     "incant": "8 h",
+     "dur": "Fin de quête",
+     "effet": "Jusqu’à la fin de la quête nommée (une saison au plus), chaque allié ignore la première blessure grave de chaque scène, et change une fois par jour un échec critique en échec simple. Briser le serment volontairement : 6d10 dégâts au fautif. Les PV sacrifiés par le lanceur ne récupèrent pas avant la fin de la durée. Empreinte Magique permanente."
+    }
+   ]
+  }
+ },
+ "armes": {
+  "titres": {
+   "Novice": "La Recrue",
+   "Pratiquant": "La Lame",
+   "Expert": "Le Briseur de Rangs",
+   "Maître": "Le Maître de Guerre",
+   "Magistère": "Le Seigneur de Bataille"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Fracas",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Le prochain coup inflige +1d6 dégâts supplémentaires."
+    },
+    {
+     "n": "Frappe du Poing Dur",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque à mains nues : +10 IA. Si touché, la cible recule d’1 m."
+    },
+    {
+     "n": "Posture de Menace",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "Une cible choisie subit −5 IA contre le lanceur. Sang-froid Diff 15 pour résister."
+    },
+    {
+     "n": "Cri de Guerre",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "Un allié désigné gagne +5 IA pour sa prochaine attaque."
+    },
+    {
+     "n": "Analyse Martiale",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Lit les failles d’une cible en mouvement. +5 IA contre elle pendant la durée."
+    },
+    {
+     "n": "Garde Rapide",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "+5 ID contre une seule attaque. Peut être déclenché après avoir vu l’attaque partir."
+    },
+    {
+     "n": "Tranchant Vif",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Affûte une arme tenue. +2 dégâts et ignore 2 points de réduction d’armure."
+    },
+    {
+     "n": "Repli Instinctif",
+     "diff": 15,
+     "pm": 3,
+     "type": "X",
+     "dur": "Instantané",
+     "effet": "Se déplace d’1 m hors de portée. −10 à l’attaque ennemie déclenchante."
+    },
+    {
+     "n": "Empoigne",
+     "diff": 15,
+     "pm": 4,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "Saisit une cible à portée de mêlée. Retient 1 tour (Athlétisme Diff 20) ou force à lâcher une arme."
+    },
+    {
+     "n": "Regard de Mort",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Une cible en vue subit −5 IA tant qu’elle sait que le lanceur la regarde. Sang-froid Diff 15 pour ignorer."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Marche du Prédateur",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 minute",
+     "effet": "+5 Athlétisme. Ignore le terrain difficile pendant la durée."
+    },
+    {
+     "n": "Vitesse de Frappe",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "+10 Initiative."
+    },
+    {
+     "n": "Coup dans l’Arme",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "La cible subit −10 IA."
+    },
+    {
+     "n": "Enchaînement",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "Deux attaques ce tour. Chaque attaque à −5 IA."
+    },
+    {
+     "n": "Sacrifice",
+     "diff": 20,
+     "pm": 7,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Sacrifie 5 PV : +1d8 dégâts supplémentaires sur le prochain coup."
+    },
+    {
+     "n": "Regard de Duel",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 tour",
+     "effet": "La cible désignée subit −10 IA contre le lanceur exclusivement."
+    },
+    {
+     "n": "Résistance au Choc",
+     "diff": 20,
+     "pm": 6,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Absorbe 8 dégâts d’une seule attaque physique entrante."
+    },
+    {
+     "n": "Frappe Percée",
+     "diff": 20,
+     "pm": 7,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Ignore complètement l’armure légère. Réduit l’armure intermédiaire de moitié."
+    },
+    {
+     "n": "Contre-Attaque",
+     "diff": 20,
+     "pm": 6,
+     "type": "X",
+     "dur": "Instantané",
+     "effet": "Si l’attaquant rate, le lanceur riposte immédiatement à −5 IA. Ne coûte pas d’action."
+    },
+    {
+     "n": "Maîtrise du Sol",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "2 tours",
+     "effet": "Impossible de renverser, déplacer ou désarmer le lanceur pendant la durée."
+    },
+    {
+     "n": "Sang-Froid Martial",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Supprime 1 niveau de Fatigue immédiatement. Sans effet sur un personnage en Agonie."
+    },
+    {
+     "n": "Lecture du Combat",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Initiative et +5 Intuition. Le lanceur perçoit les intentions immédiates adverses — pas les pensées, juste l’élan du corps."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Parade Instinctive",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "+10 ID contre une attaque physique entrante."
+    },
+    {
+     "n": "Charge Percutante",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Attaque avec +10 IA. La cible est repoussée de 2 m (Athlétisme Diff 25 pour résister)."
+    },
+    {
+     "n": "Brise-Garde",
+     "diff": 25,
+     "pm": 8,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Ignore parade, bouclier et réduction d’armure pour cette attaque."
+    },
+    {
+     "n": "Coup Décisif",
+     "diff": 25,
+     "pm": 9,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "+1d8 dégâts. Si la cible est déjà blessée (<= 75 % PV), +1d6 dégâts supplémentaires."
+    },
+    {
+     "n": "Saut du Briseur",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "+10 Athlétisme pour franchir un obstacle ou se déplacer hors de portée de mêlée."
+    },
+    {
+     "n": "Pression Martiale",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "L’ennemi ciblé subit −5 ID et −5 IA contre le lanceur."
+    },
+    {
+     "n": "Coup Désarmant",
+     "diff": 25,
+     "pm": 9,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Inflige 1d6 dégâts et désarme la cible (Athlétisme Diff 30 pour résister). L’arme tombe à 1 m."
+    },
+    {
+     "n": "Fracture",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Blessure structurelle. Si touché, la cible subit −5 IA pendant 3 tours."
+    },
+    {
+     "n": "Riposte de Fers",
+     "diff": 30,
+     "pm": 9,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Si le lanceur pare ou bloque : renvoie 1d8 dégâts à l’attaquant."
+    },
+    {
+     "n": "Charge du Taureau",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Dégâts : dés de la marge + 10. La cible est renversée (Athlétisme Diff 30). Si collision avec un obstacle : +1d6 dégâts."
+    },
+    {
+     "n": "Tranchant de Guerre",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "2 tours",
+     "effet": "+5 IA. Les coups ignorent les armures légères et traitent les armures intermédiaires comme légères."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Peau de Guerre",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Réduction −8 dégâts physiques. Cicatrices lumineuses visibles sur le corps du lanceur."
+    },
+    {
+     "n": "Fracasse-Écu",
+     "diff": 30,
+     "pm": 10,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Détruit ou neutralise un bouclier ou une arme non magique. Inflige 1d8 dégâts à la cible."
+    },
+    {
+     "n": "Tempête de Lames",
+     "diff": 30,
+     "pm": 11,
+     "type": "S",
+     "dur": "1 tour",
+     "effet": "Attaque jusqu’à 3 ennemis proches avec +5 IA chacun. Un jet unique ; dés de la marge + 10 à chacun. Terreur Magique Diff 25."
+    },
+    {
+     "n": "Défi du Titan",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+10 IA, +1d6 dégâts, +10 Sang-froid. Les blessures reçues ne réduisent pas IA/ID pendant la durée."
+    },
+    {
+     "n": "Onde de Choc",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Zone 5 m. dés de la marge + 10 à tous les ennemis + Athlétisme Diff 30 ou renversés. Terreur Magique Diff 25."
+    },
+    {
+     "n": "Sang pour Sang",
+     "diff": 35,
+     "pm": 11,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Chaque blessure infligée récupère 1d6 PV au lanceur. Les cicatrices du tatouage saignent."
+    },
+    {
+     "n": "Frappe Légendaire",
+     "diff": 40,
+     "pm": 13,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Dégâts : dés de la marge + 18. Perfore toute armure non magique. Si la cible meurt : Terreur Diff 30. Sinon : Diff 25."
+    },
+    {
+     "n": "Voile de Combat",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "−15 IA ennemie contre le lanceur. Chaque attaque portée gagne +5 IA cumulatif (max +15)."
+    },
+    {
+     "n": "Fracture du Monde",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Zone 5 m. dés de la marge + 10 à tous les ennemis + renversés (Athlétisme Diff 35). Terreur Magique Diff 25."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Serment de Duel",
+     "diff": 40,
+     "pm": 15,
+     "pv": 2,
+     "type": "R",
+     "incant": "15 min",
+     "dur": "Issue du duel",
+     "effet": "Deux combattants gagnent +10 IA l’un contre l’autre jusqu’à l’issue du duel. Tout intrus qui frappe un duelliste subit 4d10 dégâts. Celui qui fuit perd 10d6 PV à la rupture."
+    },
+    {
+     "n": "Marque du Combattant",
+     "diff": 45,
+     "pm": 18,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "1 mois",
+     "effet": "Une arme gagne +5 IA et +1d6 dégâts. Empreinte visible sur le métal."
+    },
+    {
+     "n": "Bannière de Courage",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "1 scène",
+     "effet": "Compagnie jusqu’à 100 : immunité aux effets de peur, +10 Sang-froid et +5 IA. Les alliés qui voient le lanceur ne peuvent fuir. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Peau de Bataille",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "45 min",
+     "dur": "24 h",
+     "effet": "Réduction −15 dégâts physiques. Cicatrices lumineuses visibles. Empreinte Magique permanente."
+    },
+    {
+     "n": "Arme Assoiffée",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "24 h",
+     "effet": "À chaque blessure infligée : +1d10 PV récupérés. L’arme prend une teinte rouge sombre. Empreinte Magique."
+    },
+    {
+     "n": "Rugissement de Commandement",
+     "diff": 60,
+     "pm": 38,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "1 scène",
+     "effet": "Jusqu’à 50 alliés : +10 IA et +10 Initiative. Ennemis à portée de voix : Sang-froid Diff 35 ou −10 IA et effet de peur. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Marche de Fer",
+     "diff": 65,
+     "pm": 42,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "10 h",
+     "effet": "Colonne jusqu’à 100 : immunisée au terrain difficile, +10 Athlétisme. Empreinte Magique."
+    },
+    {
+     "n": "Fracture de Garde",
+     "diff": 70,
+     "pm": 50,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "1 scène",
+     "effet": "Tous les ennemis dans 30 m subissent −20 ID en permanence pendant la scène. Empreinte Magique."
+    },
+    {
+     "n": "Arsenal Éphémère",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "1 scène",
+     "effet": "Six armes spectrales : IA 70, dégâts : dés de la marge + 18. Obéissent aux ordres mentaux. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Choc Sismique",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Instantané",
+     "effet": "Rituel tenu. Zone 30 m : dés de la marge + 18 + Athlétisme Diff 35 ou renversés. Le sol reste terrain difficile. Terreur Magique Diff 35. Empreinte Magique permanente."
+    },
+    {
+     "n": "Champion de Guerre",
+     "diff": 80,
+     "pm": 60,
+     "pv": 6,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "1 scène",
+     "effet": "+20 IA, +2d10 dégâts, +20 ID. Immunité aux effets de peur. Les blessures graves comptent comme légères. Empreinte Magique permanente. Terreur Magique Diff 35."
+    }
+   ]
+  }
+ },
+ "sauvage": {
+  "titres": {
+   "Novice": "Le Louveteau",
+   "Pratiquant": "Le Pisteur",
+   "Expert": "Le Traqueur",
+   "Maître": "La Bête Aînée",
+   "Magistère": "Le Premier Prédateur"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Griffes de l’Instinct",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque à mains nues : +1d6 dégâts. Les doigts durcissent le temps d’un coup."
+    },
+    {
+     "n": "Saut Animal",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "+10 Athlétisme pour un saut, une escalade ou un franchissement immédiat."
+    },
+    {
+     "n": "Souffle du Coureur",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "Ignore la pénalité de Fatigue pour une seule action physique ce tour."
+    },
+    {
+     "n": "Regard du Prédateur",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Observation contre une cible observée en mouvement. Perçoit les hésitations."
+    },
+    {
+     "n": "Oreille Sauvage",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Écoute. Perçoit les sons imperceptibles à distance normale (respiration, pas feutrés)."
+    },
+    {
+     "n": "Peau Rugueuse",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Réduction −5 dégâts physiques pour une seule attaque entrante."
+    },
+    {
+     "n": "Griffe d’Avertissement",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Marque une cible d’un effluve invisible. +5 Pistage contre elle pendant la durée."
+    },
+    {
+     "n": "Silence du Chasseur",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "3 tours",
+     "effet": "+5 Discrétion. Tous les sons liés aux mouvements du lanceur sont absorbés."
+    },
+    {
+     "n": "Posture de Domination",
+     "diff": 15,
+     "pm": 4,
+     "type": "S",
+     "dur": "2 tours",
+     "effet": "Zone 3 m. Créatures et personnes non entraînées hésitent à approcher (Sang-froid Diff 15)."
+    },
+    {
+     "n": "Morsure",
+     "diff": 15,
+     "pm": 4,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Attaque à mains nues : dés de la marge + 4 + saignement léger (1 dégât/tour pendant 3 tours)."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Piste Vivante",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "+10 Pistage. Lit les passages récents dans un environnement naturel ou semi-naturel."
+    },
+    {
+     "n": "Odeur de la Proie",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+5 Pistage et Observation pour suivre une cible dont le lanceur a une trace physique."
+    },
+    {
+     "n": "Course du Loup",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 minute",
+     "effet": "+5 Athlétisme. Ignore le terrain difficile."
+    },
+    {
+     "n": "Peau de Bête",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Réduction −5 dégâts physiques. La peau durcit légèrement, visible à l’œil attentif."
+    },
+    {
+     "n": "Éveil des Sens",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "+5 Observation et Écoute. Perçoit les présences vivantes dans 15 m sans ligne de vue."
+    },
+    {
+     "n": "Instinct de Fuite",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 tour",
+     "effet": "+10 Initiative pour se dégager, fuir ou créer de la distance."
+    },
+    {
+     "n": "Endurance Brute",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Supprime 1 niveau de Fatigue physique immédiatement. Sans effet sur un personnage en Agonie."
+    },
+    {
+     "n": "Peau Résistante",
+     "diff": 20,
+     "pm": 6,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Absorbe 8 dégâts d’une seule attaque physique entrante."
+    },
+    {
+     "n": "Cri d’Alerte",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Avertit tous les alliés dans 30 m d’un danger imminent. +5 Initiative pour le groupe au tour suivant."
+    },
+    {
+     "n": "Venin de Bête",
+     "diff": 20,
+     "pm": 7,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Contact. Dégâts : dés de la marge + 7 + −5 IA pendant 2 tours (Corps Diff 20 pour résister au malus)."
+    },
+    {
+     "n": "Territoire",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Marque une zone de 10 m de rayon. +5 Intuition pour percevoir tout intrus pendant la durée."
+    },
+    {
+     "n": "Sang Chaud",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "2 heures",
+     "effet": "Résiste au froid extrême et à la fatigue physique liée aux températures. +5 Survie."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Bond du Fauve",
+     "diff": 25,
+     "pm": 8,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque avec +10 IA après un déplacement d’au moins 3 m ce tour."
+    },
+    {
+     "n": "Hurlement Terrifiant",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 tour",
+     "effet": "Zone 5 m. Ennemis : Sang-froid Diff 25 ou −5 ID pendant 2 tours."
+    },
+    {
+     "n": "Crocs Invisibles",
+     "diff": 25,
+     "pm": 8,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "L’attaque ignore toute armure légère et 5 points d’armure intermédiaire ou lourde."
+    },
+    {
+     "n": "Vigueur Sauvage",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Endurance. Réduit de moitié les pénalités de blessures légères."
+    },
+    {
+     "n": "Traque Implacable",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "+10 Pistage et Observation contre une cible. Le lanceur ne peut pas perdre la piste pendant la durée."
+    },
+    {
+     "n": "Réflexes du Fauve",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "+10 ID contre une attaque physique entrante."
+    },
+    {
+     "n": "Mue de l’Écaille",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Modifie la couleur et la texture de la peau du lanceur. +10 Discrétion en milieu naturel."
+    },
+    {
+     "n": "Rage Contrôlée",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+1d6 dégâts. N’impose aucun malus défensif (contrairement à Rage du Sang)."
+    },
+    {
+     "n": "Coup de Griffe",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Dégâts : dés de la marge + 10. Inflige un saignement (1d4 dégâts/tour pendant 2 tours, soignable Médecine Diff 20)."
+    },
+    {
+     "n": "Mâchoire de Fer",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "Jusqu’à libération",
+     "effet": "Immobilise une cible à portée (Athlétisme Diff 30). Inflige 1d6 dégâts par tour de maintien."
+    },
+    {
+     "n": "Instinct de Survie",
+     "diff": 30,
+     "pm": 9,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Réduit les dégâts d’une attaque critique de 1d10. Ne fonctionne pas contre la magie directe."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Forme Bestiale",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+10 IA, +10 Athlétisme, attaques mains nues +1d8 dégâts. Cicatrices du tatouage rougeoient."
+    },
+    {
+     "n": "Peau d’Écorce",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Réduction −8 dégâts physiques. La peau prend une texture légèrement ligneuse, visible."
+    },
+    {
+     "n": "Sens du Prédateur",
+     "diff": 30,
+     "pm": 10,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "+10 Observation, Pistage, Intuition. Perçoit les battements de cœur dans 20 m."
+    },
+    {
+     "n": "Charge Sauvage",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Attaque de charge +10 IA. Athlétisme Diff 30 ou renversée : 2d6 dégâts. Terreur Diff 25."
+    },
+    {
+     "n": "Rage du Sang",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+1d10 dégâts sur chaque attaque. −5 ID pendant la durée (abandon de la défense)."
+    },
+    {
+     "n": "Transformation Partielle",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Griffes (+2d6 dégâts mains nues), sens accrus (+10 Observation/Écoute), cuirasse (−8 dégâts). Terreur Diff 25."
+    },
+    {
+     "n": "Hurlement du Prédateur",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Zone 15 m. Tous les ennemis : Sang-froid Diff 30 ou Frayeur (fuient 1d4 tours). Terreur Diff 25."
+    },
+    {
+     "n": "Instinct de Mort",
+     "diff": 40,
+     "pm": 13,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Perçoit la faille vitale d’une cible. Prochain coup : ignore toute armure non magique + 2d10 dégâts. Terreur Diff 25."
+    },
+    {
+     "n": "Meute de Sang",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Le lanceur peut porter 2 attaques supplémentaires par tour à −5 IA. Chaque coup qui touche régénère 1d6 PV."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Appel de la Meute",
+     "diff": 40,
+     "pm": 15,
+     "pv": 1,
+     "type": "R",
+     "incant": "20 min",
+     "dur": "24 h",
+     "effet": "Animaux dans 500 m : rejoignent la meute du lanceur et combattent pour lui. +5 Leadership. Un animal peut agir comme guide."
+    },
+    {
+     "n": "Marche des Forêts",
+     "diff": 45,
+     "pm": 18,
+     "pv": 1,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "24 h",
+     "effet": "Groupe jusqu’à 20 : ignore le terrain difficile naturel, vitesse doublée en forêt, +5 Survie. Aucune trace."
+    },
+    {
+     "n": "Vision de la Traque",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "45 min",
+     "dur": "7 jours",
+     "effet": "+10 Pistage et Observation contre une cible. Le lanceur perçoit sa direction partout dans le même monde. Empreinte Magique."
+    },
+    {
+     "n": "Peau de la Terre",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "24 h",
+     "effet": "Réduction −15 dégâts physiques. Motifs proches du bois ou de la pierre sur la peau. Empreinte permanente."
+    },
+    {
+     "n": "Communion Animale",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "7 jours",
+     "effet": "Communication simple avec les animaux de la région, qui rapportent au lanceur ce qu’ils ont vu. +10 Persuasion animale. Empreinte Magique."
+    },
+    {
+     "n": "Rugissement Primordial",
+     "diff": 60,
+     "pm": 38,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "1 scène",
+     "effet": "Ennemis dans 50 m : Sang-froid Diff 35 ou fuite pendant 1d4 tours. Alliés : +10 IA pendant la scène. Terreur Magique Diff 35."
+    },
+    {
+     "n": "Chasse Sacrée",
+     "diff": 65,
+     "pm": 42,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "Prise de la proie",
+     "effet": "Groupe : +10 Pistage, Observation et IA contre une proie désignée, jusqu’à sa prise (une lune au plus). La proie ne peut se cacher magiquement. Empreinte Magique."
+    },
+    {
+     "n": "Bénédiction du Prédateur",
+     "diff": 70,
+     "pm": 50,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "24 h",
+     "effet": "Lanceur : +15 IA, +2d6 dégâts, +15 Athlétisme. Immunité au terrain difficile. Empreinte Magique permanente."
+    },
+    {
+     "n": "Esprit de la Forêt",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "7 jours",
+     "effet": "Groupe : +10 Survie, Observation, Discrétion en milieu naturel. Perçoit les intrusions dans toute la forêt, jusqu’à 1 km. Empreinte Magique."
+    },
+    {
+     "n": "Terre Vivante",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Instantané",
+     "effet": "Rituel tenu. Zone 30 m. Racines retiennent les ennemis (Athlétisme Diff 35) : dés de la marge + 18 et immobilisés 1d4 tours pour ceux qui échouent. Terreur Diff 35. Empreinte permanente."
+    },
+    {
+     "n": "Avatar Sauvage",
+     "diff": 80,
+     "pm": 60,
+     "pv": 6,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "1 scène",
+     "effet": "+20 IA, +2d10 dégâts, −12 dégâts subis. Transformation visible. Immunité Peur. Empreinte permanente. Terreur Diff 35."
+    }
+   ]
+  }
+ },
+ "dieux": {
+  "titres": {
+   "Novice": "Le Fidèle",
+   "Pratiquant": "L’Officiant",
+   "Expert": "Le Prêtre-Juge",
+   "Maître": "Le Porte-Parole",
+   "Magistère": "L’Élu"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Main Bénie",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Soigne 1d6+3 PV par contact. Laisse une légère chaleur sur la peau."
+    },
+    {
+     "n": "Détection du Mal",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "3 tours",
+     "effet": "+5 Intuition pour percevoir intentions hostiles ou malveillantes dans 5 m."
+    },
+    {
+     "n": "Lumière Sacrée",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Lumière douce dans 5 m de rayon. Repousse les créatures sensibles à la lumière (Sang-froid Diff 15)."
+    },
+    {
+     "n": "Parole Sainte",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 tour",
+     "effet": "+5 Persuasion pour un argument fondé sur la foi ou l’autorité divine."
+    },
+    {
+     "n": "Purifié du Doute",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Retire un effet de Peur ou d’Hésitation de niveau léger sur le lanceur ou un allié au contact."
+    },
+    {
+     "n": "Frappe Consacrée",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Arme ou mains nues : +1d6 dégâts sacrés. Visible comme un éclair blanc bref sur l’impact."
+    },
+    {
+     "n": "Sceau du Seuil",
+     "diff": 15,
+     "pm": 4,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Bénit un seuil, une porte ou un passage. +5 Observation pour percevoir tout être hostile qui le franchit."
+    },
+    {
+     "n": "Voix Apaisante",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Réduit l’agressivité d’une créature non hostile (Sang-froid Diff 15). Inefficace sur les créatures en Rage ou contrôlées."
+    },
+    {
+     "n": "Résistance Sacrée",
+     "diff": 15,
+     "pm": 4,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Réduction −5 dégâts d’une attaque physique ou magique entrante."
+    },
+    {
+     "n": "Discernement",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Intuition. Perçoit si un être dans 5 m dit ce qu’il croit vrai — pas si c’est vrai, mais s’il y croit."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Soins",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Soigne 2d6+5 PV par contact. Peut retirer l’effet d’un poison léger."
+    },
+    {
+     "n": "Bénédiction",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Un allié gagne +5 à un jet de compétence ou d’attaque de son choix (à choisir avant le lancer)."
+    },
+    {
+     "n": "Condamnation",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Une cible subit −5 IA et −5 ID. Elle ressent une présence qui la juge."
+    },
+    {
+     "n": "Aura Protectrice",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Réduction −5 dégâts de toute nature pour le lanceur. Visible comme un voile translucide."
+    },
+    {
+     "n": "Exorcisme Mineur",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Entité non corporelle : dés de la marge + 7 dégâts sacrés + recule de 5 m (spectre, ombre, possédant)."
+    },
+    {
+     "n": "Détection Magique",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+10 Observation pour percevoir effets magiques actifs dans 10 m et leur Voix d’origine."
+    },
+    {
+     "n": "Réconfort Divin",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Retire tous les effets de Peur d’un allié au contact. +5 Sang-froid pendant la durée."
+    },
+    {
+     "n": "Lumière de Vérité",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Illusions magiques de Diff ≤ 30 visibles comme des transparences dans 10 m."
+    },
+    {
+     "n": "Sceau d’Interdiction",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Interdit l’accès à une zone de 3 m à une catégorie d’êtres définie. Diff de franchissement : 30."
+    },
+    {
+     "n": "Faveur Divine",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 à tous les jets de Voix des Dieux du lanceur pendant la durée. Cumulable une seule fois."
+    },
+    {
+     "n": "Regard du Ciel",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "+5 Observation et Intuition. Perçoit les présences hostiles cachées dans 15 m."
+    },
+    {
+     "n": "Voie Sacrée",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "2 heures",
+     "effet": "Groupe de 4 max. +5 Orientation et Perception en milieu hostile. Accidents de terrain ordinaires s’effacent."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Soins Avancés",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Soigne 3d6+8 PV. Retire l’effet d’un poison intermédiaire ou d’une maladie légère."
+    },
+    {
+     "n": "Condamnation Profonde",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Cible −10 IA, −10 Sang-froid. La cible ressent une présence divine qui la condamne (Sang-froid Diff 25 ou Frayeur)."
+    },
+    {
+     "n": "Bouclier Divin",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Absorbe 12 dégâts d’une attaque physique ou magique. Visible comme un éclat blanc brillant."
+    },
+    {
+     "n": "Sentence",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Scène",
+     "effet": "Si la vérité prononcée est exacte : +10 IA pour le groupe contre la cible jusqu’à la fin de la scène."
+    },
+    {
+     "n": "Consécration",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Zone 5 m. Morts-vivants et entités hostiles : −10 IA et −10 ID. Alliés : +5 Sang-froid."
+    },
+    {
+     "n": "Lance de Lumière",
+     "diff": 25,
+     "pm": 8,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Dés de la marge + 10 dégâts sacrés à distance (30 m). Corps Diff 25 ou aveugle temporaire (−5 Observation pendant 2 tours)."
+    },
+    {
+     "n": "Résistance Bénie",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Groupe de 3 alliés max. Réduction −5 dégâts de toute nature. +5 Sang-froid."
+    },
+    {
+     "n": "Marque de l’Impur",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Cible visible pour tous les alliés même hors vue directe. Ses attaques contre les alliés du lanceur subissent −5 IA."
+    },
+    {
+     "n": "Interruption Sacrée",
+     "diff": 30,
+     "pm": 9,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Tente d’interrompre un sort adverse. Jet opposé Voix des Dieux vs Voix adverse — si le lanceur gagne, le sort échoue."
+    },
+    {
+     "n": "Toucher de Mort",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Contact. dés de la marge + 10 dégâts sacrés. Doublé contre les morts-vivants et les entités démoniaques."
+    },
+    {
+     "n": "Vœu de Fer",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "Scène",
+     "effet": "Le lanceur prononce un vœu sacré. Tant qu’il le respecte ce tour, +10 à tous ses jets de résistance physique et mentale."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Jugement du Ciel",
+     "diff": 30,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Dés de la marge + 18 dégâts sacrés. Stigmate divin 7 jours. Impossible à soigner par magie ordinaire 24 h. Terreur Diff 25."
+    },
+    {
+     "n": "Lance Divine",
+     "diff": 30,
+     "pm": 12,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Dés de la marge + 18 dégâts sacrés. Cible repoussée 10 m, renverse tout sur le passage. Assommée 2 tours. Terreur Diff 25."
+    },
+    {
+     "n": "Fléau des Impurs",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Cible −20 IA, −20 Sang-froid + 5d8 dégâts sacrés par tour. Brûle d’un feu invisible que seuls les croyants voient. Terreur Diff 25."
+    },
+    {
+     "n": "Colère du Dieu",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 tour",
+     "effet": "Zone 10 m. Tout être qui ne vénère pas ce dieu : dés de la marge + 14 dégâts sacrés + paralysé 2 tours (Volonté Diff 40 pour résister). Nom entendu dans tous les temples. Terreur Diff 25."
+    },
+    {
+     "n": "Présence Sainte",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Zone 15 m. Alliés : +10 IA, +10 Sang-froid, immunité Peur. Ennemis : −5 IA. Le lanceur brille. Terreur Diff 25."
+    },
+    {
+     "n": "Sentence Mortelle",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Volonté Diff 40 ou la cible tombe à 0 PV. En cas de succès : dés de la marge + 14 dégâts quand même. Terreur Diff 25."
+    },
+    {
+     "n": "Résurrection du Serviteur",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Permanent",
+     "effet": "Ramène un allié mort depuis < 1 h avec 1 PV. Inflige 3d10 dégâts au lanceur (non soignables 48 h). Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Œil du Dieu",
+     "diff": 35,
+     "pm": 10,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Perçoit tout dans 50 m : invisible, caché, illusoire. +5 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Bras du Serviteur",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+2d10 dégâts sacrés sur chaque attaque. Ignore toute armure non magique. Terreur Diff 25 au premier coup."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Festin Sacré",
+     "diff": 45,
+     "pm": 20,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "Instantané",
+     "effet": "Jusqu’à 12 convives : PV au maximum, toute Fatigue retirée, poisons neutralisés, un niveau de blessure permanente effacé. Empreinte Magique."
+    },
+    {
+     "n": "Consécration Majeure",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "Permanent",
+     "effet": "Sanctifie un lieu (50 m de rayon). Morts-vivants et entités ne peuvent pas y entrer. Alliés : +5 Sang-froid en permanence. Empreinte permanente."
+    },
+    {
+     "n": "Purification",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "Instantané",
+     "effet": "Retire tout effet magique négatif actif sur une cible, quelle que soit son origine. Empreinte Magique."
+    },
+    {
+     "n": "Jugement Divin",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "Permanent",
+     "effet": "Cible −10 IA et −10 Sang-froid en permanence. Condamnation permanente, levable uniquement par le même dieu. Empreinte permanente."
+    },
+    {
+     "n": "Résurrection",
+     "diff": 65,
+     "pm": 40,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Ramène un allié mort depuis < 1 jour. Il revient avec la moitié de ses PV maximum, sans blessures permanentes nouvelles. Empreinte permanente. +2 Écho."
+    },
+    {
+     "n": "Appel à Témoin",
+     "diff": 65,
+     "pm": 40,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "1 scène",
+     "effet": "Invoque la présence du dieu comme observateur invisible mais ressenti (Sang-froid Diff 35). Le Meneur interprète. Empreinte permanente."
+    },
+    {
+     "n": "Sentence du Ciel",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Condamne une créature à mourir dans un délai fixé (Diff 70 = 1 semaine). Seule une intervention divine peut l’annuler. Empreinte permanente. +2 Écho."
+    },
+    {
+     "n": "Grand Exorcisme",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Détruit une entité surnaturelle liée (spectre puissant, démon mineur). Jet opposé Diff 70 vs résistance de l’entité. Empreinte permanente."
+    },
+    {
+     "n": "Gardien Sacré",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Crée un gardien divin (IA 70, ID 65, 80 PV, dégâts sacrés : dés de la marge + 14). Terreur Diff 35 à sa première apparition. Empreinte permanente. +3 Écho."
+    },
+    {
+     "n": "Condamnation Éternelle",
+     "diff": 75,
+     "pm": 55,
+     "pv": 6,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Stigmate éternel : impossible à soigner par magie, jets de Voix échouent automatiquement, reconnu des fidèles. Empreinte permanente. +2 Écho."
+    },
+    {
+     "n": "Manifestation",
+     "diff": 80,
+     "pm": 60,
+     "pv": 8,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "3 tours",
+     "effet": "Le dieu s’incarne visiblement. Deux actes divins parmi : soigner tous les alliés au maximum ; prononcer une sentence ressentie dans 50 m ; détruire toute entité non divine dans 5 m ; condamner une créature à mort différée. Terreur Magique niveau Débordement. +4 Écho. Empreinte permanente majeure."
+    }
+   ]
+  }
+ },
+ "ombres": {
+  "titres": {
+   "Novice": "L’Ombre Portée",
+   "Pratiquant": "Le Rôdeur",
+   "Expert": "Le Voile",
+   "Maître": "Le Sans-Visage",
+   "Magistère": "La Nuit Entière"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Pas Feutré",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "3 tours",
+     "effet": "+10 Discrétion. Tous les sons liés aux déplacements du lanceur disparaissent — pas, frottements, chocs accidentels."
+    },
+    {
+     "n": "Regard Vide",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Le lanceur devient visuellement insignifiant. +5 Discrétion en milieu peuplé — les regards glissent sur lui sans s’arrêter."
+    },
+    {
+     "n": "Écoute Tendue",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+10 Écoute. Perçoit clairement les conversations dans 15 m, même à travers une porte fermée ou un mur léger."
+    },
+    {
+     "n": "Sens du Danger",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "3 tours",
+     "effet": "+5 Intuition pour percevoir une intention hostile dans 5 m avant qu’elle se manifeste. +5 Initiative contre une embuscade."
+    },
+    {
+     "n": "Main Légère",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+10 Dextérité et Crochetage pour la prochaine action qui requiert ces compétences."
+    },
+    {
+     "n": "Brume de Nuit",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "Crée une légère brume sombre dans 3 m de rayon. −5 Observation pour toute personne qui tente de repérer le lanceur."
+    },
+    {
+     "n": "Voix dans l’Ombre",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Projette un son à distance de 20 m, sans source apparente. +5 Tromperie pour toute diversion liée."
+    },
+    {
+     "n": "Effleurement",
+     "diff": 15,
+     "pm": 4,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque silencieuse à mains nues : dés de la marge + 4. Si la cible ne perçoit pas le lanceur : +1d6 supplémentaires."
+    },
+    {
+     "n": "Sens de la Serrure",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+10 Crochetage. Perçoit le mécanisme d’une serrure ou d’un piège par le toucher, même sans outil."
+    },
+    {
+     "n": "Lecture du Silence",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Intuition. Perçoit ce qu’une personne choisit de ne pas dire — l’existence et l’intensité de la dissimulation, pas son contenu."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Invisibilité Partielle",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "+10 Discrétion. Difficile à percevoir en mouvement lent ou en immobilité. En mouvement rapide : +5 seulement."
+    },
+    {
+     "n": "Voix Empruntée",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Reproduit parfaitement une voix entendue dans les 24 h. +10 Tromperie pour l’imitation."
+    },
+    {
+     "n": "Détection du Piège",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "+10 Observation pour détecter pièges mécaniques et magiques dans 10 m. Identifie le type et le déclencheur."
+    },
+    {
+     "n": "Obscurité Locale",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Zone de 5 m plongée dans l’obscurité. Seul le lanceur voit normalement. Les autres : −10 Observation."
+    },
+    {
+     "n": "Crochet d’Ombre",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque depuis l’obscurité ou une dissimulation : +5 IA, +1d8 dégâts. Si cible surprise totale : +2d8."
+    },
+    {
+     "n": "Effacement de Traces",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Efface toutes les traces physiques laissées par le lanceur dans les 10 dernières minutes."
+    },
+    {
+     "n": "Déguisement Rapide",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Modifie légèrement l’apparence du lanceur (couleur, teint, traits flous). +10 Tromperie pour passer inaperçu."
+    },
+    {
+     "n": "Lire les Secrets",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "Toucher. Perçoit les émotions liées au mensonge d’une cible sur un sujet précis — ce qu’elle cache, pas ce que c’est."
+    },
+    {
+     "n": "Ombre Portée",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Contrôle sa propre ombre : immobile, fausse direction, ou disparaît. +10 Discrétion."
+    },
+    {
+     "n": "Frappe Silencieuse",
+     "diff": 20,
+     "pm": 6,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Dés de la marge + 7 dégâts, silencieuse — aucun son à l’impact. Si la cible est seule, elle ne peut pas crier."
+    },
+    {
+     "n": "Filature",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "30 min",
+     "effet": "+10 Discrétion et +10 Observation pour suivre une cible sans être vu. Annule le désavantage de terrain découvert."
+    },
+    {
+     "n": "Langage du Geste",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Communication silencieuse totale avec jusqu’à 3 alliés désignés dans 30 m — instantanément compris."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Invisibilité Complète",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Totalement invisible. Le lanceur peut agir une fois avant que l’invisibilité se dissipe. +15 Discrétion en immobilité."
+    },
+    {
+     "n": "Double Illusoire",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Crée un double visuel (IA 40, ID 35, 15 PV). Sa destruction : onde lumineuse (−5 Observation, 1 tour, 3 m)."
+    },
+    {
+     "n": "Marche Sans Bruit",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Le lanceur et jusqu’à 2 alliés se déplacent sans aucun son. +10 Discrétion groupe."
+    },
+    {
+     "n": "Extraction Mentale",
+     "diff": 25,
+     "pm": 9,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "Toucher. Extrait une information précise de la mémoire d’une cible endormie ou inconsciente. Elle ignore la manipulation."
+    },
+    {
+     "n": "Vol de Visage",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Reproduit l’apparence d’une personne connue. +10 Tromperie. Connaît son rôle, ses relations proches, ses habitudes récentes."
+    },
+    {
+     "n": "Réflexe de l’Ombre",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "+10 ID contre une attaque physique. Si marge ≥ 15 : riposte automatique pour 1d8 dégâts."
+    },
+    {
+     "n": "Pas d’Ombre",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "Se déplace à travers une zone de 3 m d’obscurité comme à travers un couloir — mur, porte barrée, grille."
+    },
+    {
+     "n": "Poison Murmuré",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Contact ou air expiré. −5 Sang-froid et +1 niveau de Fatigue Mentale/heure. Corps Diff 30 pour résister."
+    },
+    {
+     "n": "Silence Tactique",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Zone 8 m. Aucun sort vocal, aucune communication orale possible. Sorts à composante verbale : impossibles."
+    },
+    {
+     "n": "Couteau dans le Dos",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Si la cible ne perçoit pas le lanceur : dés de la marge + 14 + saignement (1d6/tour pendant 3 tours). Requiert une arme de corps à corps."
+    },
+    {
+     "n": "Chuchotement Impossible",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Implante un son dans la perception d’une cible. Sang-froid Diff 30 pour ne pas réagir à l’illusion sonore."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Assassinat Parfait",
+     "diff": 30,
+     "pm": 12,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Cible totalement surprise : +30 IA, +28 dégâts, mort instantanée sur 01–10. Cible en Agonie : mort automatique. Débordement : mort sur 01–20. Terreur Diff 25."
+    },
+    {
+     "n": "Vol d’Identité",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Apparence, voix, connaissance contextuelle + souvenirs émotionnels des 3 derniers jours. +25 Tromperie. Empreinte Magique. Terreur Diff 25."
+    },
+    {
+     "n": "Voile de la Cité",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Zone 100 m. Obscurité surnaturelle totale. Autres : −25 Observation, −15 IA, sorts visuels impossibles. Sang-froid Diff 25 à l’entrée. Terreur Diff 25."
+    },
+    {
+     "n": "Manteau d’Oubli",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Le lanceur cesse d’exister dans la mémoire immédiate dans 10 m. Même s’ils le voient, ils ne peuvent pas se souvenir de lui. Empreinte Magique. Terreur Diff 25."
+    },
+    {
+     "n": "Lame Fantôme",
+     "diff": 30,
+     "pm": 10,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Attaque silencieuse à distance (20 m). Dégâts : dés de la marge + 14, ignore armure légère. La cible ne perçoit pas la source. Terreur Diff 25."
+    },
+    {
+     "n": "Vérité Forcée",
+     "diff": 40,
+     "pm": 13,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "La cible ne peut pas mentir sur un sujet défini. Elle peut se taire — mais tout ce qu’elle dit est vrai. Volonté Diff 40. Empreinte Magique. Terreur Diff 25."
+    },
+    {
+     "n": "Effacement Partiel",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Permanent",
+     "effet": "Efface un événement précis (1 h max) de la mémoire d’une cible. Diff 40 vs Volonté. La cible ignore avoir oublié. Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Frappe de l’Abîme",
+     "diff": 40,
+     "pm": 13,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Dés de la marge + 18 dégâts d’ombre, ignore toute armure physique. Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Inversion des Témoins",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Zone 15 m. Tous voient le lanceur comme quelqu’un d’autre (Sang-froid Diff 35 pour percer). Inefficace sur ceux qui le connaissent intimement. Terreur Diff 25."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Marche Sans Traces",
+     "diff": 45,
+     "pm": 20,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "24 h",
+     "effet": "Le lanceur et jusqu’à sept compagnons : aucune trace physique ou magique. Aucune détection magique ne fonctionne. Ne déclenche pas les alarmes. Empreinte Magique."
+    },
+    {
+     "n": "Double de Fuite",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "45 min",
+     "dur": "24 h",
+     "effet": "Double autonome (IA 55, ID 50) capable d’attaquer, de parler et de voyager loin du lanceur. Destruction : onde d’ombre (−15 Observation, 1 tour, 3 m). Empreinte Magique."
+    },
+    {
+     "n": "Extraction de Mémoire",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "Permanent",
+     "effet": "Extrait un souvenir précis d’une cible inconsciente ou consentante. Peut être redonné, conservé ou détruit. Empreinte permanente."
+    },
+    {
+     "n": "Réseau d’Espions",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "1 saison",
+     "effet": "Lie jusqu’à 12 personnes. Chacune transmet une information quotidienne à son insu. Empreinte Magique sur chaque cible."
+    },
+    {
+     "n": "Effacement",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "24 h",
+     "effet": "Le lanceur + 4 alliés imperceptibles pour tout sens ou magie. Actes violents : flash visible 1 tour seulement. +1 Écho. Empreinte Magique."
+    },
+    {
+     "n": "Manteau de Nuit",
+     "diff": 65,
+     "pm": 40,
+     "pv": 4,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "8 heures",
+     "effet": "Zone 1 km. Obscurité renforcée — magie de lumière réduite à moitié de portée. Empreinte permanente."
+    },
+    {
+     "n": "Identité Fantôme",
+     "diff": 70,
+     "pm": 45,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Crée une fausse identité complète : documents, souvenirs d’autrui falsifiés, archives cohérentes. Empreinte permanente."
+    },
+    {
+     "n": "Résurrection de l’Ombre",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Ramène un allié mort depuis < 6 h. Il revient altéré : −15 à tous jets en plein jour. +2 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Effacement Collectif",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Efface jusqu’à 20 personnes de la mémoire d’une communauté. Seule une Voix des Dieux niveau Rituel peut annuler. +2 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Le Mensonge qui Devient Vrai",
+     "diff": 80,
+     "pm": 55,
+     "pv": 6,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Implante une fausse mémoire complète — la cible y croit pour toujours. Si elle réalise : 4d8 dégâts psychiques + Volonté Diff 50 ou dissociation. Aucune détection possible. +2 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Effacement du Monde",
+     "diff": 85,
+     "pm": 65,
+     "pv": 8,
+     "type": "R",
+     "incant": "6 h",
+     "dur": "Permanent",
+     "effet": "Efface une personne de toute perception et mémoire collective — archives, témoins, portraits, souvenirs intimes. Elle existe mais n’est plus attestée. Chaque retour public lui coûte Sang-froid Diff 40 (cumulative). +4 Écho. Empreinte permanente majeure."
+    }
+   ]
+  }
+ },
+ "erudits": {
+  "titres": {
+   "Novice": "Le Lecteur",
+   "Pratiquant": "Le Copiste",
+   "Expert": "Le Glossateur",
+   "Maître": "Le Docteur",
+   "Magistère": "Le Maître des Tables"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Lecture Rapide",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Traite un texte de n’importe quelle longueur en 1 minute avec compréhension complète. +5 Lettres sur le sujet du texte."
+    },
+    {
+     "n": "Analyse",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+10 Observation sur un objet ou un mécanisme. Le lanceur en perçoit la fonction, l’état, les failles éventuelles."
+    },
+    {
+     "n": "Mémoire de Fer",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Enregistre parfaitement tout ce qui est perçu pendant la durée. Peut être rappelé avec précision à tout moment ultérieur."
+    },
+    {
+     "n": "Détection de Magie",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "+10 Observation pour percevoir la présence d’effets magiques actifs dans 8 m. Identifie la Voix d’origine."
+    },
+    {
+     "n": "Calcul Mental",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "Instantané",
+     "effet": "Résout instantanément un problème mathématique ou logistique de complexité moyenne. +10 Investigation pour ce calcul précis."
+    },
+    {
+     "n": "Frappe Précise",
+     "diff": 15,
+     "pm": 3,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "+5 IA et les dégâts ignorent 5 points d’armure physique légère. L’analyse du mouvement adverse rend l’attaque chirurgicale."
+    },
+    {
+     "n": "Compréhension des Langues",
+     "diff": 15,
+     "pm": 4,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Comprend et parle n’importe quelle langue connue ou ancienne pendant la durée. +10 Persuasion dans cette langue."
+    },
+    {
+     "n": "Esquisse Mentale",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Crée une représentation mentale précise d’un lieu visité ou d’un objet examiné. Utilisable comme référence par la suite."
+    },
+    {
+     "n": "Sens du Mensonge",
+     "diff": 15,
+     "pm": 3,
+     "type": "C",
+     "dur": "3 tours",
+     "effet": "+5 Intuition pour percevoir les incohérences logiques dans un discours. Détecte les contradictions, pas le mensonge intentionnel."
+    },
+    {
+     "n": "Regard de l’Ingénieur",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Observation et +5 Athlétisme pour évaluer et franchir un obstacle structurel (mur, mécanisme, piège physique)."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Divination Mineure",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Pose une question factuelle sur un sujet dans 50 m. Reçoit une réponse vraie mais fragmentaire — un fait, pas une explication."
+    },
+    {
+     "n": "Bouclier Analytique",
+     "diff": 20,
+     "pm": 6,
+     "type": "X",
+     "dur": "1 attaque",
+     "effet": "Réduction −8 dégâts d’une attaque physique. +5 ID contre l’attaquant pour ce tour."
+    },
+    {
+     "n": "Transmission de Savoir",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Transfère à un allié au contact une compétence maîtrisée. +10 à cette compétence pour l’allié pendant la durée."
+    },
+    {
+     "n": "Dissection Magique",
+     "diff": 20,
+     "pm": 7,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "Analyse un effet magique actif dans 5 m : Diff, PM, origine et conditions d’annulation."
+    },
+    {
+     "n": "Projection Mentale",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Perçoit à distance dans une zone connue à 100 m max — images et sons, sans y être présent."
+    },
+    {
+     "n": "Inscription",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Permanent",
+     "effet": "Grave un sort mineur ou utilitaire dans un objet. L’objet peut déclencher ce sort une fois. Diff de déclenchement : 15."
+    },
+    {
+     "n": "Contre-sort",
+     "diff": 20,
+     "pm": 7,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Annule un sort de Diff ≤ 20 dans 10 m. Jet opposé Voix des Érudits vs Voix adverse."
+    },
+    {
+     "n": "Amplification",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 au score de Voix pour les jets de Voix des Érudits pendant la durée. Cumulable une seule fois."
+    },
+    {
+     "n": "Cartographie Rapide",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Mémorise et reproduit mentalement un espace de 100 m² traversé ou observé. Précision architecturale exacte."
+    },
+    {
+     "n": "Analyse du Combat",
+     "diff": 20,
+     "pm": 6,
+     "type": "C",
+     "dur": "3 tours",
+     "effet": "+5 Observation et +5 Intuition. Après 1 tour d’observation : anticipe les attaques d’un adversaire (+5 ID contre lui)."
+    },
+    {
+     "n": "Distorsion Logique",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Un interlocuteur perçoit une affirmation fausse comme cohérente. Volonté Diff 20. Ne crée pas de croyance — contourne la vigilance momentanément."
+    },
+    {
+     "n": "Bouclier Renforcé",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Renforce l’armure ou la protection naturelle : −5 dégâts supplémentaires. Cumulable avec une armure physique."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Divination Précise",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Question factuelle dans 200 m. Reçoit une réponse complète et exacte — un fait et son contexte immédiat."
+    },
+    {
+     "n": "Annulation",
+     "diff": 25,
+     "pm": 9,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Annule un sort de Diff ≤ 35 dans 15 m. En cas d’échec : le sort ciblé est affaibli de moitié."
+    },
+    {
+     "n": "Transfert de Mémoire",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Toucher. Extrait ou dépose un souvenir précis dans/depuis la mémoire d’une cible coopérante ou inconsciente."
+    },
+    {
+     "n": "Projection Augmentée",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Voit et entend à distance dans n’importe quel lieu connu, sans limite de portée dans le même plan."
+    },
+    {
+     "n": "Bouclier Miroir",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Renvoie un sort de Diff ≤ 30 contre son lanceur. Jet opposé. En cas d’échec : sort simplement absorbé."
+    },
+    {
+     "n": "Analyse Structurelle",
+     "diff": 25,
+     "pm": 8,
+     "type": "C",
+     "dur": "5 min",
+     "effet": "Évalue la résistance d’une structure. Identifie les points de rupture. +10 pour les exploiter."
+    },
+    {
+     "n": "Désintégration Mineure",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Dés de la marge + 10 dégâts à un objet ou une créature. Ignore les armures légères. La cible ne perçoit pas la source."
+    },
+    {
+     "n": "Accélération Mentale",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "+5 Initiative, +5 à tous les jets d’analyse et de décision. Le lanceur traite les informations à une vitesse augmentée."
+    },
+    {
+     "n": "Piège de Connaissance",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Inscrit un piège magique sur une surface. Quiconque le lit ou le touche : Volonté Diff 30 ou paralysé 2 tours."
+    },
+    {
+     "n": "Dissonance Cognitive",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "3 tours",
+     "effet": "Cible. Perçoit ses propres actions comme contradictoires : −10 IA, −10 Sang-froid (Volonté Diff 30 pour résister)."
+    },
+    {
+     "n": "Lance Analytique",
+     "diff": 30,
+     "pm": 9,
+     "type": "I",
+     "dur": "1 attaque",
+     "effet": "Dégâts : dés de la marge + 10. L’attaque traverse toute défense magique de Diff < 30 — analyse les protections et les contourne."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Grande Annulation",
+     "diff": 30,
+     "pm": 12,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Annule n’importe quel sort de n’importe quelle Voix dans 20 m. Jet opposé sans malus de Diff. Terreur Diff 25."
+    },
+    {
+     "n": "Lecture Totale",
+     "diff": 30,
+     "pm": 10,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Perçoit intégralement la structure magique d’un être : Voix, sorts connus, PM actuels, faiblesses. Empreinte Magique. Terreur Diff 25."
+    },
+    {
+     "n": "Désintégration Majeure",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Dés de la marge + 18 dégâts. Ignore toute armure et résistance magique de Diff < 35. La cible ne perçoit pas la source. Empreinte Magique. Terreur Diff 25."
+    },
+    {
+     "n": "Réécriture",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Permanent",
+     "effet": "Modifie un fait dans la mémoire de 10 personnes max. Diff 35 vs Volonté collective. Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Bouclier Total",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "5 tours",
+     "effet": "Réduction −10 dégâts de toute nature. Annule automatiquement tout sort de Diff ≤ 25 ciblant le lanceur. Terreur Diff 25."
+    },
+    {
+     "n": "Compréhension Abyssale",
+     "diff": 40,
+     "pm": 13,
+     "type": "C",
+     "dur": "10 min",
+     "effet": "Structure fondamentale d’un lieu dans 50 m : présences, empreintes passées, points de rupture. +5 Écho. Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Déconstruction",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Détruit un objet magique ou rituel actif de Diff ≤ 50. Aucun jet de résistance. Empreinte permanente. Terreur Diff 25."
+    },
+    {
+     "n": "Absorption Magique",
+     "diff": 35,
+     "pm": 12,
+     "type": "X",
+     "dur": "1 sort",
+     "effet": "Absorbe un sort lancé contre le lanceur et récupère la moitié des PM correspondants. Jet opposé. Terreur Diff 25."
+    },
+    {
+     "n": "Domination Intellectuelle",
+     "diff": 40,
+     "pm": 13,
+     "type": "C",
+     "dur": "1 scène",
+     "effet": "La cible agit selon les instructions tant qu’elles restent logiquement cohérentes. Volonté Diff 40. Toute instruction suicidaire brise l’effet. Empreinte permanente. Terreur Diff 25."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Grande Divination",
+     "diff": 45,
+     "pm": 20,
+     "pv": 2,
+     "type": "R",
+     "incant": "30 min",
+     "dur": "Instantané",
+     "effet": "Pose une question sur n’importe quel sujet dans le monde connu. Réponse vraie et complète, avec contexte. Peut être cryptique si la vérité est trop complexe. Empreinte Magique."
+    },
+    {
+     "n": "Bibliothèque Mentale",
+     "diff": 50,
+     "pm": 25,
+     "pv": 2,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "Permanent",
+     "effet": "Mémorise intégralement le contenu d’un texte ou d’un corpus de connaissance. Rappelable à volonté avec précision de lecture immédiate. Empreinte permanente."
+    },
+    {
+     "n": "Projection Astrale",
+     "diff": 55,
+     "pm": 30,
+     "pv": 3,
+     "type": "R",
+     "incant": "1 h",
+     "dur": "8 heures",
+     "effet": "Projette la conscience dans un lieu connu à n’importe quelle distance. Voir, entendre, lire — sans agir. Corps vulnérable. Empreinte Magique."
+    },
+    {
+     "n": "Effacement Structurel",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "1 semaine",
+     "effet": "Annule tous les rituels actifs dans 20 m. Zone résistante à la magie pendant 1 semaine (Diff +10 pour tout sort). Empreinte permanente."
+    },
+    {
+     "n": "Transmission Complète",
+     "diff": 60,
+     "pm": 35,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "Permanent",
+     "effet": "Transfère intégralement une maîtrise (compétence ou Voix jusqu’à palier Expert) à un être consentant. Le lanceur perd définitivement ce qu’il a transmis. +2 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Oracle",
+     "diff": 65,
+     "pm": 40,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "1 scène",
+     "effet": "Le lanceur répond à n’importe quelle question sur les événements survenus dans une ville entière au cours des sept derniers jours. Empreinte permanente."
+    },
+    {
+     "n": "Grande Réécriture",
+     "diff": 70,
+     "pm": 50,
+     "pv": 5,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Modifie un fait dans la mémoire collective d’une ville entière. Archives physiques épargnées. +2 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Ancre de Réalité",
+     "diff": 70,
+     "pm": 50,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Jusqu’à 1 an",
+     "effet": "Inscrit une réalité dans la structure du monde. Pendant la durée, cette réalité résiste à toute magie de Diff < 60. Empreinte permanente."
+    },
+    {
+     "n": "Dissection de Voix",
+     "diff": 75,
+     "pm": 55,
+     "pv": 5,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Analyse complète d’une Voix inconnue. Le lanceur acquiert une compréhension théorique suffisante pour en enseigner les bases. +3 Écho. Empreinte permanente."
+    },
+    {
+     "n": "Lecture du Fond",
+     "diff": 80,
+     "pm": 60,
+     "pv": 6,
+     "type": "R",
+     "incant": "5 h",
+     "dur": "Instantané",
+     "effet": "Perçoit la couche d’énergie brute qui gît sous un lieu : état, degré d’épuisement, capacité restante. Le Meneur communique ces informations au lanceur seul. +4 Écho. Empreinte permanente majeure."
+    },
+    {
+     "n": "Réécriture du Monde",
+     "diff": 85,
+     "pm": 70,
+     "pv": 8,
+     "type": "R",
+     "incant": "8 h",
+     "dur": "Permanent",
+     "effet": "Réécrit une loi physique ou magique locale dans 10 m. Effet permanent et irréversible. +5 Écho. Empreinte permanente et majeure."
+    }
+   ]
+  }
+ },
+ "creation": {
+  "titres": {
+   "Novice": "Le Veilleur",
+   "Pratiquant": "Le Tailleur",
+   "Expert": "Le Sertisseur",
+   "Maître": "Le Scelleur d’Âmes",
+   "Magistère": "Le Faiseur de Reliques"
+  },
+  "sorts": {
+   "mineurs": [
+    {
+     "n": "Œil du Passage",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "Aperçoit les esprits récemment morts (< 10 min) dans 15 m. Nature et emplacement uniquement — pas d’identité."
+    },
+    {
+     "n": "Toucher Révélateur",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "En touchant un objet magique, ressent le type d’esprit (soldat, savant, enfant…) sans identifier la personne."
+    },
+    {
+     "n": "Éclat de Vie",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Évalue la force vitale d’un être en vue. Sait si une personne est mourante ou à risque immédiat dans les 1d6 tours."
+    },
+    {
+     "n": "Murmure de Pierre",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Ressent si une gemme brute est adaptée à accueillir un esprit, et son rang maximal supportable."
+    },
+    {
+     "n": "Empreinte Résiduelle",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Lit les impressions émotionnelles d’un objet ancien. Reçoit 1 à 3 images ou émotions des moments marquants de son histoire."
+    },
+    {
+     "n": "Sceau de Préservation",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Préserve un objet ou matériau de toute dégradation naturelle. Utilisable sur une gemme en cours de préparation."
+    },
+    {
+     "n": "Légèreté du Don",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "24 h",
+     "effet": "Allège le poids psychique d’un esprit stocké dans la réserve du Créateur. −1 niveau de Fatigue liée à la rétention."
+    },
+    {
+     "n": "Détection d’Enchantement",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "Détecte tout objet magique dans 15 m. Sait si un objet est enchanté — pas ce qu’il fait."
+    },
+    {
+     "n": "Voix des Matériaux",
+     "diff": 15,
+     "pm": 3,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Perçoit les propriétés naturelles d’un matériau brut. Sait s’il convient à un usage précis. +5 au premier test d’artisanat sur ce matériau."
+    },
+    {
+     "n": "Apaisement Mineur",
+     "diff": 15,
+     "pm": 4,
+     "type": "S",
+     "dur": "24 h",
+     "effet": "Calme un esprit agité dans la réserve ou dans un objet. Réduit la probabilité d’Influence pour 24 h."
+    }
+   ],
+   "utilitaires": [
+    {
+     "n": "Vision Funeste",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "5 min",
+     "effet": "Étape 1 de la création. Perçoit l’esprit qui quitte un corps au moment exact d’une mort. Fenêtre de 5 minutes."
+    },
+    {
+     "n": "Sens du Cycle",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Ressent quand un être dans 30 m entre en phase agonisante. Anticipe une mort de 1d6 tours."
+    },
+    {
+     "n": "Purification de Gemme",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Nettoie une gemme de toute impureté spirituelle résiduelle. La prépare à accueillir un nouvel esprit."
+    },
+    {
+     "n": "Discernement d’Esprit",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Identifie l’occupation et le rang de puissance d’un esprit observé au passage ou capturé. +10 à tous les tests liés à cet esprit."
+    },
+    {
+     "n": "Façonnage Guidé",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "+10 à tout test d’artisanat sur un objet destiné à recevoir un esprit. Qualité structurelle supérieure."
+    },
+    {
+     "n": "Arrestation du Passage",
+     "diff": 20,
+     "pm": 7,
+     "type": "X",
+     "dur": "2 min",
+     "effet": "Ralentit la dissipation d’un esprit au seuil de la mort. Étend la fenêtre de capture de 2 minutes."
+    },
+    {
+     "n": "Écho de Pierre",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Entend les émotions dominantes d’un esprit enfermé dans un objet. Impressions générales uniquement."
+    },
+    {
+     "n": "Lien à l’Objet",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "24 h",
+     "effet": "Établit un lien sensoriel avec un objet fabriqué par le Créateur. Sait s’il est déplacé, activé ou endommagé."
+    },
+    {
+     "n": "Réparation Magique",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Restaure un objet magique mineur endommagé à son état fonctionnel. Ne fonctionne pas si l’objet est brisé totalement."
+    },
+    {
+     "n": "Patience de l’Esprit",
+     "diff": 20,
+     "pm": 8,
+     "type": "S",
+     "dur": "24 h",
+     "effet": "Un esprit dans la réserve se stabilise. Réduit de moitié les PM drainés par la rétention pendant 24 h."
+    },
+    {
+     "n": "Compulsion d’Artisan",
+     "diff": 20,
+     "pm": 6,
+     "type": "S",
+     "dur": "2 heures",
+     "effet": "État de concentration exceptionnelle. +10 à tous les tests d’artisanat pendant la durée. Qualité remarquable."
+    },
+    {
+     "n": "Analyse Profonde",
+     "diff": 20,
+     "pm": 7,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Révèle les propriétés cachées d’un matériau brut : origines, âge, niveau de résonance avec un type d’esprit précis."
+    }
+   ],
+   "tactiques": [
+    {
+     "n": "Lecture des Derniers Instants",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Par contact avec un cadavre de moins d’une heure, voit les 30 dernières secondes vécues. Terreur Diff 25."
+    },
+    {
+     "n": "Compression Spirituelle",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "48 h",
+     "effet": "Stocke 1 esprit supplémentaire dans la réserve sans Fatigue additionnelle pendant 48 h."
+    },
+    {
+     "n": "Transfert de Résidu",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Extrait les impressions spirituelles d’un objet détruit pour les réimplanter dans un nouvel objet. Perd 1 rang de puissance."
+    },
+    {
+     "n": "Emprise de Création",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 semaine",
+     "effet": "Verrouille la progression de corruption d’un objet magique à son niveau actuel pendant 1 semaine."
+    },
+    {
+     "n": "Révélation d’Esprit",
+     "diff": 25,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Identifie l’identité complète d’un esprit enfermé : nom, vie passée, mort. Test opposé Puissance d’Esprit Diff 25."
+    },
+    {
+     "n": "Inversion du Flux",
+     "diff": 25,
+     "pm": 8,
+     "type": "X",
+     "dur": "1 tour",
+     "effet": "Redirige le pouvoir d’un objet magique ennemi. Pendant 1 tour, ses effets actifs lui sont appliqués à lui."
+    },
+    {
+     "n": "Résonance d’Objet",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Deux objets fabriqués par le même Créateur : +3 à tous leurs effets s’ils sont portés simultanément."
+    },
+    {
+     "n": "Drain d’Enchantement",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Aspire l’énergie magique d’un objet non scellé. Récupère 1d6 PM. L’objet perd ses effets pour 24 h."
+    },
+    {
+     "n": "Chuchotement au Créateur",
+     "diff": 25,
+     "pm": 8,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Envoie un message mental (10 mots max) à un porteur d’un objet fabriqué par le Créateur, via l’esprit enfermé."
+    },
+    {
+     "n": "Sceau de Silence",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "24 h",
+     "effet": "Un objet magique devient indétectable à toute divination ou magie de détection."
+    },
+    {
+     "n": "Éveil Contrôlé",
+     "diff": 30,
+     "pm": 9,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Déclenche délibérément l’évolution d’un palier si les conditions sont remplies, sans attendre de catalyseur."
+    }
+   ],
+   "signature": [
+    {
+     "n": "Écho de l’Esprit",
+     "diff": 30,
+     "pm": 8,
+     "type": "S",
+     "dur": "10 min",
+     "effet": "Communication partielle avec l’esprit d’un objet : émotions, images, fragments. L’esprit peut refuser. Empreinte."
+    },
+    {
+     "n": "Sceller un Esprit",
+     "diff": 35,
+     "pm": 10,
+     "type": "I",
+     "dur": "Permanent",
+     "effet": "Étape 2. Capture un esprit au seuil de la mort dans la réserve psychique. Empreinte automatique. Terreur Diff 25."
+    },
+    {
+     "n": "Vision de Lymmbos",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "1 min",
+     "effet": "Entrevoit Lymmbos. Peut identifier un esprit précis parmi les récents décédés d’une ville. Empreinte Magique."
+    },
+    {
+     "n": "Distorsion de Puissance",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "1 scène",
+     "effet": "Augmente temporairement la Puissance d’Esprit d’un objet de +5. Risque d’Influence accru après. Empreinte."
+    },
+    {
+     "n": "Ancrage Temporel",
+     "diff": 30,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 mois",
+     "effet": "Fige l’état de corruption d’un objet. Aucune progression, aucune évolution pendant la durée. Empreinte."
+    },
+    {
+     "n": "Brisure Contrôlée",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Libère l’esprit d’un objet en brisant la gemme de façon contrôlée. L’esprit repart vers Lymmbos. L’objet est détruit. Empreinte."
+    },
+    {
+     "n": "Détournement d’Esprit",
+     "diff": 40,
+     "pm": 13,
+     "type": "S",
+     "dur": "Instantané",
+     "effet": "Tente de voler l’esprit d’un objet ennemi. Test opposé Puissance d’Esprit. Empreinte majeure. Terreur Diff 25."
+    },
+    {
+     "n": "Forteresse Intérieure",
+     "diff": 30,
+     "pm": 10,
+     "type": "S",
+     "dur": "1 jour",
+     "effet": "Renforce la réserve psychique. Les esprits stockés ne peuvent pas influencer les décisions du Créateur."
+    },
+    {
+     "n": "Don Parfait",
+     "diff": 35,
+     "pm": 12,
+     "type": "S",
+     "dur": "1 heure",
+     "effet": "Un objet ordinaire reçoit temporairement les propriétés d’un esprit de rang II en réserve. L’esprit est épuisé après. Empreinte. Terreur Diff 25."
+    }
+   ],
+   "rituels": [
+    {
+     "n": "Sceller dans la Pierre",
+     "diff": 45,
+     "pm": 13,
+     "pv": 3,
+     "type": "R",
+     "incant": "2 h",
+     "dur": "Permanent",
+     "effet": "Étape 3. Transfert d’un esprit vers une gemme préparée. Qualité de gemme = puissance maximale possible. Empreinte permanente."
+    },
+    {
+     "n": "Sertissage Sacré",
+     "diff": 50,
+     "pm": 20,
+     "pv": 4,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Étape 4a. Fixe magiquement la gemme à l’objet. Séparation impossible sans destruction. Empreinte permanente."
+    },
+    {
+     "n": "Reliure de l’Âme",
+     "diff": 55,
+     "pm": 25,
+     "pv": 5,
+     "type": "R",
+     "incant": "3 h",
+     "dur": "Permanent",
+     "effet": "Étape 4b. Définit quelle facette de l’esprit s’exprime. Décision irréversible. Empreinte permanente."
+    },
+    {
+     "n": "Éveil Forcé",
+     "diff": 50,
+     "pm": 20,
+     "pv": 4,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Permanent",
+     "effet": "Force l’évolution d’un objet de 2 paliers. Corruption +2 immédiate. Une seule fois par objet. Empreinte permanente."
+    },
+    {
+     "n": "Transcription d’Esprit",
+     "diff": 55,
+     "pm": 26,
+     "pv": 5,
+     "type": "R",
+     "incant": "4 h",
+     "dur": "Instantané",
+     "effet": "Extrait et transcrit la mémoire complète d’un esprit enfermé. L’esprit survit mais perd ce souvenir. Empreinte permanente."
+    },
+    {
+     "n": "Fusion d’Esprits",
+     "diff": 60,
+     "pm": 34,
+     "pv": 7,
+     "type": "R",
+     "incant": "6 h",
+     "dur": "Permanent",
+     "effet": "Fusionne deux esprits de rang similaire dans un seul objet. Puissance combinée. Comportement imprévisible. Empreinte majeure."
+    },
+    {
+     "n": "Pacte de l’Artisan",
+     "diff": 65,
+     "pm": 42,
+     "pv": 8,
+     "type": "R",
+     "incant": "1 nuit",
+     "dur": "Permanent",
+     "effet": "Lie définitivement un objet à un porteur. Ne fonctionne plus pour personne d’autre. Évolution accélérée. Empreinte majeure."
+    },
+    {
+     "n": "Grand Scellement",
+     "diff": 70,
+     "pm": 52,
+     "pv": 9,
+     "type": "R",
+     "incant": "1 nuit",
+     "dur": "Permanent",
+     "effet": "Crée un objet de rang Majeur avec un esprit de rang IV ou V. Processus complet en une nuit. Empreinte majeure. Terreur Diff 35."
+    },
+    {
+     "n": "Archivage Spirituel",
+     "diff": 75,
+     "pm": 60,
+     "pv": 10,
+     "type": "R",
+     "incant": "1 nuit",
+     "dur": "Permanent",
+     "effet": "Capture jusqu’à 3 esprits lors d’un événement de mort massive. Fenêtre de 30 minutes. Empreinte majeure."
+    },
+    {
+     "n": "Scellement de Soi",
+     "diff": 85,
+     "pm": 80,
+     "pv": 12,
+     "type": "R",
+     "incant": "1 nuit",
+     "dur": "Permanent",
+     "effet": "Le Créateur commence le processus de s’enfermer dans un objet. La mort doit survenir dans les 24 h. Irréversible. Empreinte cosmique."
+    },
+    {
+     "n": "Création de Relique Divine",
+     "diff": 90,
+     "pm": 95,
+     "pv": 14,
+     "type": "R",
+     "incant": "3 nuits",
+     "dur": "Permanent",
+     "effet": "Crée une relique liée à un dieu avec un esprit de rang V. Nécessite un signe d’acquiescement du dieu. Empreinte cosmique. Terreur Diff 35."
+    }
+   ]
+  }
+ }
+}
