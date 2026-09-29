@@ -186,7 +186,7 @@ export function ExportPDFButton({ personnage }: { personnage: Personnage }) {
       doc.setTextColor(107, 101, 137)
       doc.setFontSize(5)
       doc.text(
-        'IA mêlée = Corps+Comp−Fatigue·5−ArmIA · IA distance = Agilité+Tir · ID = (Corps+Agi)÷2+Déf+Bouclier · Seuil combat = 40+IA−ID (5–95) · Seuil sort = Voix+Esprit−Diff',
+        'IA = Carac. pilote (Agilité ; Corps : mains nues, armes lourdes) + Comp. arme − 5×Fatigue − Malus armure · ID = (Corps+Agi)÷2 + Esquive/Parade + Bouclier + Taille · Seuil combat = 40+IA−ID (5–95) · Seuil sort = Voix+Esprit−Diff',
         105, 290, { align: 'center' }
       )
 

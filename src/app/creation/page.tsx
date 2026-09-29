@@ -17,16 +17,16 @@ const RACES = [
   {id:'nain',name:'Nain',ren:3,statAdj:{Corps:5,Volonté:5,Agilité:-5,Présence:-5},compBonus:{Endurance:5},
    aff:'Ossature Dense — −1 Fatigue physique par scène.',
    don:[{l:'Éveil I',t:'Ignore 2 premiers pts Fatigue'},{l:'Éveil II',t:'Réduction armure +2'},{l:'Éveil III',t:'Immunité à la peur'}]},
-  {id:'saurien',name:'Saurien',ren:3,statAdj:{Corps:5,Perception:5,Esprit:-5,Présence:-5},compBonus:{'Survie physique':5},
+  {id:'saurien',name:'Saurien',ren:3,statAdj:{Corps:5,Perception:5,Esprit:-5,Présence:-5},compBonus:{'Survie':5},
    aff:'Sang Ancien — Résistance chaleur et toxines.',
    don:[{l:'Éveil I',t:'+5 IA 1er tour'},{l:'Éveil II',t:'Immunité au poison'},{l:'Éveil III',t:'Récup. 10 PV après mise à terre ennemi'}]},
   {id:'manst',name:'Manst',ren:3,statAdj:{Corps:5,Agilité:5,Volonté:5,Présence:-5,Esprit:-5},compBonus:{},
    aff:'Colosse — Manie arme à 2 mains avec une seule.',
    don:[{l:'Éveil I',t:'Impact +2 dégâts'},{l:'Éveil II',t:'Corps +5'},{l:'Éveil III',t:'Charge Percutante 2×/scénario'}]},
-  {id:'lumeris',name:'Luméris',ren:2,statAdj:{Esprit:5,Volonté:5,Perception:3,Corps:-5,Présence:-5},compBonus:{},
+  {id:'lumeris',name:'Luméris',ren:2,statAdj:{Esprit:5,Volonté:5,Perception:5,Corps:-5,Présence:-5},compBonus:{},
    aff:'Peau Chromatique — −10 Tromperie, +5 coordination alliés.',
    don:[{l:'Éveil I',t:'Résonance des Lieux 1×/scénario'},{l:'Éveil II',t:'Résonance étendue'},{l:'Éveil III',t:'Méditation +5 Esprit & Perception'}]},
-  {id:'aelos',name:'Aélos',ren:3,statAdj:{Agilité:5,Perception:5,Corps:-5,Volonté:-5},compBonus:{'Maniement Armes':5},
+  {id:'aelos',name:'Aélos',ren:3,statAdj:{Agilité:5,Perception:5,Corps:-5,Volonté:-5},compBonus:{'Maniement armes':5},
    aff:'Souvenir des Ailes — Vol (3 PV/tour). Ignore dégâts de chute.',
    don:[{l:'Éveil I',t:'+5 Perception extérieur'},{l:'Éveil II',t:'Plus de malus décollage'},{l:'Éveil III',t:'Plus aucun malus en vol'}]},
   {id:'felcan',name:'Felcan',ren:4,statAdj:{Agilité:5,Perception:5,Corps:-5,Présence:-5},compBonus:{},felcanVoix:true,
@@ -44,10 +44,10 @@ const RACES = [
 ] as any[]
 
 const SKILLS: Record<string,string[]> = {
-  Corps:['Athlétisme','Force brute','Endurance','Résistance physique','Survie physique','Natation','Combat à mains nues','Maniement armes lourdes'],
-  Agilité:['Esquive','Parade','Discrétion','Dextérité','Acrobatie','Tir','Maniement Armes','Initiative'],
-  Esprit:['Connaissance des mondes','Histoire','Arcanes','Investigation','Artisanat','Médecine'],
-  Volonté:['Sang-froid','Détermination','Concentration','Discipline mentale','Résilience mentale','Méditation','Leadership'],
+  Corps:['Athlétisme','Force brute','Endurance','Résistance physique','Survie','Natation','Combat à mains nues','Maniement armes lourdes'],
+  Agilité:['Esquive','Parade','Discrétion','Dextérité','Acrobatie','Tir','Maniement armes','Initiative','Vol'],
+  Esprit:['Connaissance des mondes','Histoire','Arcanes','Investigation','Artisanat','Médecine','Stratégie','Lettres'],
+  Volonté:['Sang-froid','Détermination','Concentration','Discipline mentale','Résilience mentale','Méditation','Leadership','Foi'],
   Présence:['Persuasion','Diplomatie','Tromperie','Représentation','Séduction','Commandement','Marchandage','Intimidation','Réseau','Étiquette','Déguisement'],
   Perception:['Observation','Écoute','Intuition','Pistage','Recherche','Orientation'],
 }
@@ -75,6 +75,7 @@ const initState = () => ({
   step: 1,
   race: null as any,
   hPicks: [] as string[],
+  hComp: '' as string,
   base: {Corps:20,Agilité:20,Esprit:20,Volonté:20,Présence:20,Perception:20} as Record<string,number>,
   major: [] as string[],
   minor: [] as string[],
@@ -84,10 +85,10 @@ const initState = () => ({
   vSpec: 10,
   voixPts: 40,
   weapon: null as any,
-  armor: {n:'Sans armure',red:0,iaM:0,agiM:0},
+  armor: {n:'Sans armure',red:0,iaM:0} as any,
   shield: {n:'Aucun',id:0},
   inv: [] as {n:string,qty:number}[],
-  bourse: {SO:5,CA:0,DC:0},
+  bourse: {SO:0,CA:11,DC:0},
   nom:'', concept:'', origine:'', intention:'', faction:'', relations:'', bio:'',
 })
 
@@ -103,6 +104,24 @@ function getRaceBonus(race: any, hPicks: string[], s: string) {
   let b = (race.statAdj||{})[s]||0
   if (race.humanChoice && hPicks.includes(s)) b += 5
   return b
+}
+function raceComp(st: any, sk: string): number {
+  return (raceComp(st, sk)) + (st.race?.humanChoice && st.hComp===sk ? 5 : 0)
+}
+function skillVal(st: any, sk: string): number {
+  return (st.major?.includes(sk)?10:st.minor?.includes(sk)?5:0) + raceComp(st, sk)
+}
+// Fiche de référence des règles (24/09/2026) : IA = carac. pilote + comp. d'arme − malus d'armure ;
+// Agilité pour la mêlée et la distance, Corps pour les mains nues et les armes lourdes à deux mains.
+function computeCombat(st: any, fs: Record<string,number>) {
+  const w = st.weapon
+  const heavy = !w || w.cat==='lourde'
+  const pilote = heavy ? fs['Corps'] : fs['Agilité']
+  const comp = !w ? skillVal(st,'Combat à mains nues') : w.cat==='lourde' ? skillVal(st,'Maniement armes lourdes') : w.cat==='distance' ? skillVal(st,'Tir') : skillVal(st,'Maniement armes')
+  const ia = pilote + comp - (st.armor?.iaM||0) - (st.shield?.iaM||0) - (w && w.exig>fs['Corps'] ? 10 : 0)
+  const def = Math.max(skillVal(st,'Esquive'), skillVal(st,'Parade'))
+  const id_ = Math.floor((fs['Corps']+fs['Agilité'])/2) + def + (st.shield?.id||0)
+  return { ia, id_ }
 }
 function getCercle(score: number) {
   return CERCLES.find((c:any) => score >= c.min && score <= c.max) || CERCLES[0]
@@ -158,16 +177,19 @@ export default function CreationPage() {
       ...st,
       finalStats: Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)])),
       pv, pm, initBase, renommee: renTotal,
-      ia: corps, id_: Math.floor((corps+agi)/2),
+      ...computeCombat(st, Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)]))),
       voiceName: st.voice?.name || '',
+      voiceId: st.voice?.id || 'universelle',
     }
-    const { error } = await supabase.from('personnages').insert({
-      user_id: user.id,
+    const editId = new URLSearchParams(window.location.search).get('edit')
+    const fields = {
       nom: st.nom || 'Personnage sans nom',
       race: st.race?.name || '',
       data,
-      is_public: false,
-    })
+    }
+    const { error } = editId
+      ? await supabase.from('personnages').update(fields).eq('id', editId).eq('user_id', user.id)
+      : await supabase.from('personnages').insert({ ...fields, user_id: user.id, is_public: false })
     setSaving(false)
     if (!error) window.location.href = '/personnages'
     else alert('Erreur lors de la sauvegarde : ' + error.message)
@@ -230,7 +252,7 @@ export default function CreationPage() {
               {pos && <div style={{fontSize:9,color:'#22C97A'}}>{pos}</div>}
               {neg && <div style={{fontSize:9,color:'#FF9068'}}>{neg}</div>}
               {r.felcanVoix && <div style={{fontSize:9,color:'#7F77DD'}}>+5 Voix</div>}
-              {r.humanChoice && <div style={{fontSize:9,color:'#7F77DD'}}>+5×2 stats</div>}
+              {r.humanChoice && <div style={{fontSize:9,color:'#7F77DD'}}>+5 carac · +5 comp.</div>}
             </div>
           )
         })}
@@ -251,7 +273,7 @@ export default function CreationPage() {
 
       {st.race?.humanChoice && (
         <div style={S.card}>
-          <p style={{...S.label,marginBottom:'0.5rem'}}>Choisissez 2 caractéristiques (+5 chacune)</p>
+          <p style={{...S.label,marginBottom:'0.5rem'}}>Choisissez 1 caractéristique (+5) et 1 compétence (+5)</p>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'7px'}}>
             {STATS.map(s => {
               const i = st.hPicks.indexOf(s)
@@ -260,7 +282,7 @@ export default function CreationPage() {
                   const picks = [...st.hPicks]
                   const idx = picks.indexOf(s)
                   if (idx >= 0) picks.splice(idx,1)
-                  else if (picks.length < 2) picks.push(s)
+                  else if (picks.length < 1) picks.push(s)
                   upd({hPicks:picks})
                 }} style={{
                   background: i===0?'rgba(127,119,221,.2)':i===1?'rgba(34,201,122,.15)':'#221F35',
@@ -271,16 +293,20 @@ export default function CreationPage() {
               )
             })}
           </div>
-          <p style={{fontSize:11,color:st.hPicks.length===2?'#22C97A':'#9B96B8',marginTop:'0.4rem'}}>
-            {st.hPicks.length===0?'Sélectionnez 2 caractéristiques':st.hPicks.length===1?`${st.hPicks[0]} ✓ — choisissez la 2e`:`+5 ${st.hPicks[0]} et +5 ${st.hPicks[1]} ✓`}
+          <p style={{fontSize:11,color:st.hPicks.length===1?'#22C97A':'#9B96B8',marginTop:'0.4rem'}}>
+            {st.hPicks.length===0?'Sélectionnez 1 caractéristique':`+5 ${st.hPicks[0]} ✓`}
           </p>
+          <select value={st.hComp} onChange={e => upd({hComp:e.target.value})} style={{...S.input,marginTop:'0.5rem'}}>
+            <option value="">Compétence au choix (+5)…</option>
+            {Object.values(SKILLS).flat().map(sk => <option key={sk} value={sk}>{sk}</option>)}
+          </select>
         </div>
       )}
 
       <div style={S.nav}>
         <div/>
-        <button style={{...S.btn,...S.btnP,opacity:!st.race||(st.race.humanChoice&&st.hPicks.length<2)?0.35:1}}
-          disabled={!st.race||(st.race.humanChoice&&st.hPicks.length<2)}
+        <button style={{...S.btn,...S.btnP,opacity:!st.race||(st.race.humanChoice&&(st.hPicks.length<1||!st.hComp))?0.35:1}}
+          disabled={!st.race||(st.race.humanChoice&&(st.hPicks.length<1||!st.hComp))}
           onClick={() => upd({step:2})}>Suivant →</button>
       </div>
     </div>
@@ -371,7 +397,7 @@ export default function CreationPage() {
                 {skills.map(sk => {
                   const isMaj = st.major.includes(sk)
                   const isMin = st.minor.includes(sk)
-                  const rb = st.race?.compBonus?.[sk]||0
+                  const rb = raceComp(st, sk)
                   const val = (isMaj?10:isMin?5:0)+rb
                   const over = val > cap
                   if (over && (isMaj||isMin)) warns.push(`${sk} dépasse ${cap}`)
@@ -411,7 +437,7 @@ export default function CreationPage() {
   const ADV_DATA: Record<string,any> = {
     l:{label:'Léger',avantages:[
       {n:'Talent Mineur',e:'Une compétence +5 permanent'},{n:'Bonne Constitution',e:'+5 PV'},
-      {n:'Réflexes Vifs',e:'+5 Initiative'},{n:'Regard Perçant',e:'+5 Perception'},
+      {n:'Réflexes Vifs',e:'+5 Initiative'},{n:'Regard Perçant',e:'+5 Observation'},
       {n:'Endurant',e:'Réduit Fatigue 1×/scène'},{n:'Apprentissage Rapide',e:'+5 compétence intellectuelle'},
       {n:'Sociable',e:'+5 Présence'},{n:'Discipline',e:'+5 Volonté contre peur'},
       {n:'Artisan Habile',e:'+5 Artisanat'},{n:'Chance Mineure',e:'1 relance/scénario'},
@@ -427,18 +453,18 @@ export default function CreationPage() {
       {n:'Cicatrice douloureuse',d:'−5 IA temps humide'},{n:'Problème autorité',d:'−5 figures autorité'},
       {n:'Colérique',d:'−5 ID si provoqué'},{n:'Mémoire troublée',d:'Perte info'},
       {n:'Mauvais pied',d:'−5 Initiative permanent'},{n:'Mauvaise posture',d:'−5 Parade'},
-      {n:'Manque confiance',d:'−5 1ère action combat'},{n:'Regard fuyant',d:'−5 Présence'},
+      {n:'Manque confiance',d:'−5 1ère action combat'},{n:'Regard fuyant',d:'−5 Persuasion et Diplomatie'},
     ]},
     i:{label:'Important',avantages:[
       {n:'Mage Stable',e:'Ignore malus magique/scène'},{n:'Sang-Froid',e:'Ignore −5 IA/ID sous 50% PV'},
       {n:'Autorité Naturelle',e:'+10 Intimidation'},{n:'Résistance Mentale',e:'+10 vs manipulation'},
-      {n:'Voyageur',e:'Ignore malus environnement 1×/scène'},{n:'Réputation Locale',e:'+5 Renommée'},
+      {n:'Voyageur',e:'Ignore malus environnement 1×/scène'},{n:'Réputation Locale',e:'+1 réserve de Renommée'},
       {n:'Robustesse',e:'+10 PV permanents'},{n:"Maîtrise d'Arme",e:'+10 IA arme précise'},
-      {n:'Mage Talentueux',e:'+10 compétence Voix'},{n:'Esprit Acéré',e:'+5 Esprit permanent'},
-      {n:'Présence Marquante',e:'+5 Présence permanent'},{n:'Résistance Magique',e:'−5 dégâts magiques'},
+      {n:'Mage Talentueux',e:'+10 compétence Voix'},{n:'Mage Inspiré',e:'+10 PM permanents'},
+      {n:'Résistance Magique',e:'−5 dégâts magiques'},
       {n:'Guerrier Né',e:'Ignore 1 Fatigue/combat'},{n:'Stratège',e:'+5 Initiative groupe'},
     ],desavantages:[
-      {n:'Phobie',d:'Test Volonté ou −10'},{n:'Santé Fragile',d:'−5 PV permanents'},
+      {n:'Phobie',d:'Test Volonté ou −10'},{n:'Santé Fragile',d:'−10 PV permanents'},
       {n:'Peur Magie',d:'−5 jets Voix'},{n:'Endurance Limitée',d:'+1 Fatigue/combat'},
       {n:'Dette',d:'Pression narrative'},{n:'Ennemi mineur',d:'PNJ hostile récurrent'},
       {n:'Peur hauteurs',d:'−10 chutes/vertige'},{n:'Obsession',d:'Perte action si distraction'},
@@ -446,22 +472,23 @@ export default function CreationPage() {
       {n:'Claustrophobie',d:'−10 espace clos'},{n:'Honneur rigide',d:'Obligation narrative'},
       {n:'Marqué magie',d:'Détectable par mages'},{n:'Aura inquiétante',d:'−10 interactions'},
       {n:'Sensibilité magique',d:'+1 Fatigue surcharge'},{n:'Blessure mal soignée',d:'−5 Corps permanent'},
-      {n:'Bruyant',d:'−10 infiltration'},{n:'Odeur distinctive',d:'−5 furtivité'},
+      {n:'Bruyant',d:'−10 infiltration'},{n:'Odeur distinctive',d:'−10 Discrétion, bêtes à 50 m'},
       {n:'Ancien rival',d:'PNJ antagoniste'},{n:'Articulation fragile',d:'+1 Fatigue physique'},
     ]},
     e:{label:'Extraordinaire',avantages:[
-      {n:'Sang Noble',e:'+10 interaction officielle'},{n:'Réputation Étendue',e:'+10 Renommée'},
+      {n:'Sang Noble',e:'+10 interaction officielle'},{n:'Réputation Étendue',e:'+2 réserve de Renommée'},
       {n:'Aura Impressionnante',e:'+10 IA premier tour'},{n:"Maître d'Arme",e:'+15 IA arme'},
       {n:'Canalisation Pure',e:'Ignore surcharge 1×/scénario'},{n:'Volonté Inflexible',e:'+15 vs peur/contrôle'},
-      {n:'Corps Surentraîné',e:'+10 Corps permanent'},{n:'Mage Inspiré',e:'+10 PM permanents'},
-      {n:'Héritage Puissant',e:'Accès artefacts'},{n:'Héros Reconnu',e:'+15 Renommée'},
-      {n:'Talent Rare',e:'+15 compétence'},{n:'Destin Remarquable',e:'1 réussite auto/scénario'},
+      {n:'Corps Surentraîné',e:'+5 Corps permanent'},{n:'Esprit Acéré',e:'+5 Esprit permanent'},
+      {n:'Présence Marquante',e:'+5 Présence permanent'},
+      {n:'Héritage Puissant',e:'Accès artefacts'},{n:'Héros Reconnu',e:'+3 réserve de Renommée, +10 Écho personnel'},
+      {n:'Talent Rare',e:'+15 compétence'},{n:'Destin Remarquable',e:'1 relance/scénario (2e résultat imposé)'},
     ],desavantages:[
-      {n:'Corps Fragile',d:'−10 PV permanents'},{n:'Peau sensible',d:'−1 réduction armure'},
-      {n:'Vision nocturne faible',d:'−5 obscurité'},{n:'Fierté excessive',d:'Obligation narrative'},
+      {n:'Corps Fragile',d:'−15 PV permanents'},{n:'Peau sensible',d:'−3 réduction de toute armure'},
+      {n:'Vision nocturne faible',d:'−10 en obscurité, vision nulle > 5 m'},{n:'Fierté excessive',d:'Obligation narrative'},
       {n:'Faiblesse psychique',d:'−5 Volonté permanent'},{n:'Lenteur',d:'−5 IA toutes armes'},
       {n:'Déséquilibre',d:'−5 ID permanent'},{n:'Cicatrice magique',d:'Vulnérable à une Voix'},
-      {n:'Mauvais calculateur',d:'−5 Initiative groupe'},{n:'Rancune',d:'Comportement contraint'},
+      {n:'Mauvais calculateur',d:'Groupe agit en dernier au 1er tour'},{n:'Rancune',d:'Comportement contraint'},
       {n:'Malédiction',d:'−5 aléatoire stat/scène'},{n:'Objet hanté',d:'Perturbation narrative'},
       {n:'Ennemi juré',d:'Menace narrative'},{n:"Dette d'honneur",d:'Obligation future'},
       {n:'Instabilité magique',d:'Échec critique sur 96+'},{n:'Traumatisme combat',d:'Échec critique sur 96+'},
@@ -658,7 +685,7 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
 
       {st.voice && (
         <div style={{...S.warn,color:'#9B96B8',background:'rgba(127,119,221,.08)',border:'1px solid rgba(127,119,221,.2)'}}>
-          ⚠ Sorts attribués par Vaela/MJ · 1 seul Rituel actif · 1 seul sort Instantané/tour · PM perdus sur échec
+          ⚠ Sorts attribués par la main de Vaela (Meneur) · 1 seul sort Instantané par tour · 1 seul rituel tenu · PM dépensés même en cas d'échec
         </div>
       )}
 
@@ -684,13 +711,13 @@ if (s2 < esp && pts2 > 0) upd({vSpec: s2 + 1})
     {cat:'distance',n:'Arbalète',dmg:15,exig:35},
   ]
   const ARMORS_LIST = [
-    {cat:'legere',n:'Sans armure',red:0,iaM:0,agiM:0},{cat:'legere',n:'Cuir souple',red:2,iaM:0,agiM:0},
-    {cat:'legere',n:'Cuir renforcé',red:3,iaM:0,agiM:2},{cat:'intermediaire',n:'Brigandine',red:4,iaM:5,agiM:5},
-    {cat:'intermediaire',n:'Cotte de mailles',red:5,iaM:0,agiM:10},{cat:'lourde',n:'Demi-plate',red:6,iaM:10,agiM:10},
-    {cat:'lourde',n:'Armure complète',red:8,iaM:10,agiM:15},
+    {cat:'legere',n:'Sans armure',red:0,iaM:0},{cat:'legere',n:'Cuir souple',red:2,iaM:0},
+    {cat:'legere',n:'Cuir renforcé',red:3,iaM:0},{cat:'intermediaire',n:'Brigandine',red:4,iaM:5},
+    {cat:'intermediaire',n:'Cotte de mailles',red:5,iaM:5},{cat:'lourde',n:'Demi-plate',red:6,iaM:10},
+    {cat:'lourde',n:'Armure complète',red:8,iaM:10},
   ]
   const SHIELDS_LIST = [
-    {n:'Aucun',id:0},{n:'Petit bouclier',id:5},{n:'Bouclier standard',id:10},{n:'Grand bouclier',id:15,agiM:5},
+    {n:'Aucun',id:0},{n:'Petit bouclier',id:5},{n:'Bouclier standard',id:10},{n:'Grand bouclier',id:15,iaM:5},
   ]
 
   const Step6 = () => (
@@ -847,11 +874,9 @@ onBlur={e => upd({bio:e.target.value})}
   // ══════════════════════════════════════════════════════════════
   const Step8 = () => {
     const finalStats = Object.fromEntries(STATS.map(s => [s, getFinal(st.base, st.race, st.hPicks, s)]))
-    const agiEff =  finalStats['Agilité'] - ((st.shield as any)?.agiM||0) - ((st.armor as any)?.agiM||0)
-    const ia = finalStats['Corps'] - (st.armor?.iaM||0) - (st.weapon?.exig>finalStats['Corps']?10:0)
-    const id_ = Math.floor((finalStats['Corps']+agiEff)/2) + (st.shield?.id||0)
+    const { ia, id_ } = computeCombat(st, finalStats)
     const allSkills = [...st.major,...st.minor].map(sk => {
-      const rb = st.race?.compBonus?.[sk]||0
+      const rb = raceComp(st, sk)
       return {n:sk, v:(st.major.includes(sk)?10:5)+rb, maj:st.major.includes(sk)}
     })
 
@@ -922,7 +947,7 @@ onBlur={e => upd({bio:e.target.value})}
         <div style={S.card}>
           <p style={{fontSize:10,textTransform:'uppercase' as const,letterSpacing:'0.07em',color:'#6B6589',marginBottom:'0.6rem',fontWeight:700}}>Équipement</p>
           <div style={{fontSize:12,display:'flex',flexDirection:'column' as const,gap:4}}>
-            {st.weapon && <div><span style={{color:'#9B96B8'}}>Arme : </span><strong style={{color:'#E8E6F0'}}>{st.weapon.n}</strong> (Dég.{st.weapon.dmg}+{Math.floor(finalStats['Corps']/10)})</div>}
+            {st.weapon && <div><span style={{color:'#9B96B8'}}>Arme : </span><strong style={{color:'#E8E6F0'}}>{st.weapon.n}</strong> (bonus {st.weapon.dmg} + {Math.floor(finalStats['Corps']/10)} Corps, dés selon la marge)</div>}
             {st.armor && <div><span style={{color:'#9B96B8'}}>Armure : </span><strong style={{color:'#E8E6F0'}}>{st.armor.n}</strong>{st.armor.red>0?` (−${st.armor.red} dég.)`:''}</div>}
             {st.shield?.id>0 && <div><span style={{color:'#9B96B8'}}>Bouclier : </span><strong style={{color:'#E8E6F0'}}>{st.shield.n}</strong> (+{st.shield.id} ID)</div>}
             {st.inv.length>0 && <div><span style={{color:'#9B96B8'}}>Inventaire : </span>{st.inv.map(i=>`${i.n}×${i.qty}`).join(', ')}</div>}
